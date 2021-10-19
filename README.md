@@ -37,8 +37,8 @@ I am still developing this paper list (I haven't added notes for all papers). If
 
 ### Changelog
 
-- <u>10/19/2021:</u> added recent papers.
-- <u>08/23/2021:</u> the first release.
+- <u>10/19/2021:</u> added recent papers, as well as some old papers that I missed in the initial release.
+- <u>08/23/2021:</u> released the paper list!
 
 ## Table of Contents
 - [**Image Classification**](#image-classification)
