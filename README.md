@@ -35,6 +35,11 @@ Note:  not all existing physically-realizable attacks are in the category of pat
 
 I am still developing this paper list (I haven't added notes for all papers). If you want to contribute to the paper list, add your paper, correct any of my comments, or share any of your suggestions, feel free to reach out :)
 
+### Changelog
+
+- <u>10/19/2021:</u> added recent papers.
+- <u>08/23/2021:</u> the first release.
+
 ## Table of Contents
 - [**Image Classification**](#image-classification)
   - [Attacks](#attacks)
@@ -61,11 +66,21 @@ arXiv 1801; ICML 2018
 1. Seems to be a concurrent work (?) as "Adversarial Patch"
 2. Digital domain attack
 
+#### [Perceptual-Sensitive GAN for Generating Adversarial Patches](https://ojs.aaai.org//index.php/AAAI/article/view/3893)
+
+AAAI 2019
+
+1. generate imperceptible patches.
+
 #### [PatchAttack: A Black-box Texture-based Attack with Reinforcement Learning](https://arxiv.org/abs/2004.05682)
 
 arXiv 2004; ECCV 2020
 
 1. a *black-box* attack via reinforcement learning
+
+#### [Robust Physical-World Attacks on Face Recognition](https://arxiv.org/pdf/2011.13526.pdf)
+
+arXiv 2011
 
 #### [A Data Independent Approach to Generate Adversarial Patches](https://link.springer.com/article/10.1007/s00138-021-01194-6)
 
@@ -103,6 +118,18 @@ arXiv 2108
 
 1. consider physical-world patch attack in the 3-D space (images are taken from different angles)
 
+#### [Robust Adversarial Attack Against Explainable Deep Classification Models Based on Adversarial Images With Different Patch Sizes and Perturbation Ratios](https://ieeexplore.ieee.org/document/9548896)
+
+IEEE Access
+
+1. use patch to attack classification models and explanation models
+
+#### [Adversarial Token Attacks on Vision Transformers](https://arxiv.org/abs/2110.04337)
+
+arXiv 2110
+
+1. A analysis of perturbing part of tokens of ViT
+
 https://arxiv.org/pdf/2106.09222.pdf
 
 [(go back to table of contents)](#table-of-contents)
@@ -122,6 +149,13 @@ CVPR workshop 2018
 arXiv 1807; WACV 2019
 
 1. An **empirical defense**. Use pixel gradient to detect patch and smooth in the suspected regions.
+
+#### [Ally patches for spoliation of adversarial patches](https://journalofbigdata.springeropen.com/articles/10.1186/s40537-019-0213-4)
+
+Journal of Big Data
+
+1. An **empirical defense**, make prediction on pixel patches, and do majority voting
+2. This paper is somehow missed by almost all relevant papers in this field (probably due to its venue); it only has one self-citation. However, its idea is quite similar to some certified defenses that are published in 2019-2020
 
 #### [Defending Against Physically Realizable Attacks on Image Classification](https://arxiv.org/abs/1909.09552)
 
@@ -237,6 +271,12 @@ arXiv 2104; ICLR workshop 2021
 2. A hybrid of PatchGuard and Minority Report
 3. SOTA provable robust accuracy (for attack detection) and clean accuracy on ImageNet
 
+#### [A Novel Lightweight Defense Method Against Adversarial Patches-Based Attacks on Automated Vehicle Make and Model Recognition Systems](https://link.springer.com/article/10.1007/s10922-021-09608-6)
+
+Journal of Network and Systems Management
+
+1. **empirical defense.** require the assumption of horizontal symmetry of the image. only applicable to a certain scenario.
+
 #### [Real-time Detection of Practical Universal Adversarial Perturbations](https://arxiv.org/pdf/2105.07334.pdf)
 
 arXiv 2105
@@ -257,6 +297,20 @@ arXiv 2108
 1. **Certified defense** that is compatible with any state-of-the-art image classifier
 2. huge improvements in clean accuracy and certified robust accuracy (its clean accuracy is close to SOTA image classifier)
 
+#### [Defending Against Universal Adversarial Patches by Clipping Feature Norms](https://openaccess.thecvf.com/content/ICCV2021/papers/Yu_Defending_Against_Universal_Adversarial_Patches_by_Clipping_Feature_Norms_ICCV_2021_paper.pdf)
+
+ICCV 2021
+
+1. **empirical defense** via clipping feature norm.
+2. Oddly, this paper does not cite Clipped BagNet
+
+#### [Certified Patch Robustness via Smoothed Vision Transformers](https://arxiv.org/abs/2110.07719)
+
+arXiv 2110
+
+1. **Certified defense.** ViT + [De-randomized Smoothing](https://arxiv.org/abs/2002.10733)
+2. Drop tokens that correspond to pixel masks to greatly improve efficiency. 
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -265,7 +319,7 @@ arXiv 2108
 
 TODO
 
-see Table 2 of the [PatchCleanser](https://arxiv.org/abs/2108.09135) paper for a comprehensive comparison
+(see two concurrent works of [PatchCleanser](https://arxiv.org/abs/2108.09135) and [smoothed ViT](https://arxiv.org/abs/2110.07719) for state-of-the-art defense performance)
 
 
 
@@ -351,7 +405,21 @@ arXiv 2105
 
 arXiv 2108
 
-https://arxiv.org/abs/1802.06430
+#### [Physical Adversarial Attacks on an Aerial Imagery Object Detector](https://arxiv.org/abs/2108.11765)
+
+arXiv 2108
+
+#### [You Cannot Easily Catch Me: A Low-Detectable Adversarial Patch for Object Detectors](https://arxiv.org/abs/2109.15177)
+
+arXiv 2109
+
+1. attack against object detectors that can also evade attack-detection models.
+
+#### [Naturalistic Physical Adversarial Patch for Object Detectors](https://openaccess.thecvf.com/content/ICCV2021/papers/Hu_Naturalistic_Physical_Adversarial_Patch_for_Object_Detectors_ICCV_2021_paper.pdf)
+
+ICCV 2021
+
+1. an improved attack from adversarial T-shirt. The patch looks more natural (e.g., a dog)
 
 [(go back to table of contents)](#table-of-contents)
 
