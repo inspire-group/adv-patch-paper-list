@@ -37,7 +37,7 @@ I am still developing this paper list (I haven't added notes for all papers). If
 
 ### Changelog
 
-- <u>10/19/2021:</u> added recent papers, as well as some old papers that I missed in the initial release.
+- <u>10/23/2021:</u> added recent papers, as well as some old papers that I missed in the initial release.
 - <u>08/23/2021:</u> released the paper list!
 
 ## Table of Contents
@@ -129,6 +129,10 @@ IEEE Access
 arXiv 2110
 
 1. A analysis of perturbing part of tokens of ViT
+
+#### [One Thing to Fool them All: Generating Interpretable, Universal, and Physically-Realizable Adversarial Features](https://arxiv.org/abs/2110.03605)
+
+arXiv 2110
 
 https://arxiv.org/pdf/2106.09222.pdf
 
@@ -367,7 +371,9 @@ arXiv 1910; ECCV 2020
 
 #### [APRICOT: A Dataset of Physical Adversarial Attacks on Object Detection](https://arxiv.org/abs/1912.08166)
 
-arXiv 1912
+arXiv 1912; ECCV 2020
+
+1. a dataset with annotated patch locations.
 
 #### [Adaptive Square Attack: Fooling Autonomous Cars With Adversarial Traffic Signs](https://ieeexplore.ieee.org/document/9165820)
 
@@ -421,6 +427,12 @@ ICCV 2021
 
 1. an improved attack from adversarial T-shirt. The patch looks more natural (e.g., a dog)
 
+#### [Legitimate Adversarial Patches: Evading Human Eyes and Detection Models in the Physical World](https://dl.acm.org/doi/abs/10.1145/3474085.3475653)
+
+MM 2021
+
+1. an improved attack from adversarial T-shirt. The patch looks more natural (e.g., an Ivysaur!)
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -436,11 +448,11 @@ arXiv 1910; CVPR workshop 2020
 
 #### [Meta Adversarial Training against Universal Patches](https://arxiv.org/pdf/2101.11453.pdf)
 
-arXiv 210; ICML 2021 workshop
+arXiv 2101; ICML 2021 workshop
 
 #### [DetectorGuard: Provably Securing Object Detectors against Localized Patch Hiding Attacks](https://arxiv.org/abs/2102.02956)
 
-arXiv 2102
+arXiv 2102; CCS 2021
 
 1. The **first certified defense** for patch hiding attack
 2. Adapt robust image classifiers for robust object detection
@@ -458,6 +470,12 @@ arXiv 2106
 
 1. Two **empirical defenses** for patch hiding attack
 2. Feed small image region to the detector; grows the region with some heuristics; detect an attack when YOLO detects objects in a smaller region but miss objects in a larger expanded region.
+
+#### [Adversarial Pixel Masking: A Defense against Physical Attacks for Pre-trained Object Detectors](https://dl.acm.org/doi/abs/10.1145/3474085.3475338)
+
+MM 2021
+
+1. **Empirical defense.** Adversarially train a "MaskNet" to detect and mask the patch
 
 [(go back to table of contents)](#table-of-contents)
 
