@@ -53,8 +53,8 @@ I am actively developing this paper list (I haven't added notes for all papers).
 ## Table of Contents
 - [**Defense Terminology**](#defense-terminology)
 
-  - [Empirically Robust Defenses vs Provably/certifiably Robust Defenses](#empirically-robust-defenses-vs-provably/certifiably-robust-defenses )
-  - [Robust Prediction vs Attack Detection](#robustpPrediction-vs-attack-detection)
+  - [Empirically Robust Defenses vs Provably/certifiably Robust Defenses](#empirically-robust-defenses-vs-provablycertifiably-robust-defenses)
+  - [Robust Prediction vs Attack Detection](#robust-prediction-vs-attack-detection)
 
 - [**Image Classification**](#image-classification)
   
@@ -70,7 +70,7 @@ I am actively developing this paper list (I haven't added notes for all papers).
 
 ## Defense Terminology
 
-### **Empirically Robust Defenses vs Provably/certifiably Robust Defenses **
+### **Empirically Robust Defenses vs Provably/certifiably Robust Defenses**
 
 There are two categories of defenses that have different robustness guarantees.
 
