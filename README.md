@@ -1,4 +1,14 @@
 # A Paper List for Localized Adversarial Patch Research
+## Changelog
+
+- <u>11/13/2021</u>: added explanations of different defense terminologies. added a few more recent papers.
+
+- <u>10/23/2021:</u> added recent papers, as well as some old papers that I missed in the initial release.
+
+- <u>08/23/2021:</u> released the paper list!
+
+  
+
 ## What is the localized adversarial patch attack?
 
 Different from classic adversarial examples that are configured to has a small L_p norm distance to the normal examples, a localized adversarial patch attacker can <u>arbitrarily modify</u> the pixel values <u>within a small region</u>.
@@ -19,6 +29,8 @@ Since all perturbations are within a small region, we can print and attach the p
 
 Note:  not all existing physically-realizable attacks are in the category of patch attacks, but the localized patch attack is (one of) the simplest and the most popular physical attacks.
 
+
+
 ## About this paper list
 
 ### Focus
@@ -28,25 +40,65 @@ Note:  not all existing physically-realizable attacks are in the category of pat
 3. <u>Localized</u> attacks (not consider other physical attacks that are more "global", e.g., some stop sign attacks which require changing the entire stop sign background)
 4. <u>More on defenses</u>: I try to provide a comprehensive list of defense papers while the attack papers might be incomprehensive
 
-### Terminology
+### Organization
 
-1. <u>Empirical defense</u>: defenses that are heuristic-based and have little security guarantee against an adaptive attacker
-2. <u>Provably robust defenses / certifiably robust defenses / certified defenses</u>: we can prove the robustness for certain *certified* images. The robustness guarantee holds for any adaptive white-box attacker within the threat model
+1. I first categorize the papers based on the task: <u>image classification vs object detection</u> (and semantic segmentation)
+2. I next group papers for <u>attacks vs defenses.</u>
+3. I tried to organize each group of papers <u>chronically</u>. I consider two timestamps: the time when the preprint is available (e.g., arXiv) and the time when a (published) paper was submitted for peer-review. I generally followed the minimum of these two, but I could make mistakes...
 
-I am still developing this paper list (I haven't added notes for all papers). If you want to contribute to the paper list, add your paper, correct any of my comments, or share any of your suggestions, feel free to reach out :)
+I am actively developing this paper list (I haven't added notes for all papers). If you want to contribute to the paper list, add your paper, correct any of my comments, or share any of your suggestions, feel free to reach out :)
 
-### Changelog
 
-- <u>10/23/2021:</u> added recent papers, as well as some old papers that I missed in the initial release.
-- <u>08/23/2021:</u> released the paper list!
 
 ## Table of Contents
+- [**Defense Terminology**](#defense-terminology)
+
+  - [Empirically Robust Defenses vs Provably/certifiably Robust Defenses](#empirically-robust-defenses-vs-provably/certifiably-robust-defenses )
+  - [Robust Prediction vs Attack Detection](#robustpPrediction-vs-attack-detection)
+
 - [**Image Classification**](#image-classification)
+  
   - [Attacks](#attacks)
   - [Defenses](#defenses)
+  
 - [**Object Detection (and Semantic Segmentation)**](#object-detection-and-semantic-segmentation)
+  
   - [Attacks](#attacks-1)
   - [Defenses](#defenses-1)
+  
+  
+
+## Defense Terminology
+
+### **Empirically Robust Defenses vs Provably/certifiably Robust Defenses **
+
+There are two categories of defenses that have different robustness guarantees.
+
+The former (<u>empirical defense</u> for short) are based on heuristic and does not have any security guarantee against an *adaptive* attacker. 
+
+On the other hand, the latter (<u>certified defense</u> for short) have provable (or certifiable) robustness guarantee for certain *certified* images, against any adaptive white-box attacker within the threat model. We evaluate certified defenses using the metric named *certified robust accuracy*; that is the fraction of test images for which the defense can certify the robustness. 
+
+**Notes:**  
+
+1. The robustness guarantee of certified defense is agnostic to attack algorithms; this property lifts the burden of designing sophisticated attack algorithms. This is also why certified defenses do not have "attack code" in their source code.
+
+2. Strictly speaking, it is usually unfair to directly compare the performance of empirical defenses and certified defenses due to the difference in the notions of robustness. Some empirical defenses might have (seemingly) higher *empirical robust accuracy* than certified defenses. However, those empirical defenses have <u>zero</u> *certified robust accuracy*, and their empirical robust accuracy might drop greatly given a stronger attacker.
+
+### Robust Prediction vs Attack Detection
+
+There are also two different defense objectives (robustness notions).
+
+<u>Robust prediction</u> requires the defense to make correct decisions (e.g., correct classification label, correct bounding box detection) for all the same, even in the presence of an attacker.
+
+<u>Attack detection</u>, on the other hand, only aims to detect an attack. That is, if the defense detects an attacker, it issues an alert and abstains from making predictions; if no attack is detected, it performs normal predictions. We can think of this type of defense as adding a special token "ALERT" to the model output space. 
+
+**Notes:**
+
+1. Apparently, the robust prediction defense is hard than the attack detection defense. The detect-and-alert setup might be problematic when human fallback is unavailable.
+2. Nevertheless, we are still interested in studying attack detection defense. There is [an interesting paper](https://arxiv.org/abs/2107.11630) discussing the connection between these two types of defense.
+3. How we evaluate the robustness of attack detection defense.
+   1. for clean images: perform the defense, and only consider a correct prediction when the output matches the ground-truth
+   2. for adversarial images: perform the defense, count a robust prediction if the prediction output is ALERT or matches the ground-truth
 
 ## Image Classification
 
@@ -134,13 +186,17 @@ arXiv 2110
 
 arXiv 2110
 
-https://arxiv.org/pdf/2106.09222.pdf
+#### [Generative Dynamic Patch Attack](https://arxiv.org/abs/2111.04266)
+
+BMVC 2021
 
 [(go back to table of contents)](#table-of-contents)
 
 
 
 ### Defenses
+
+unless noted otherwise, the defense objective is robust prediction (instead of attack detection)
 
 #### [On Visible Adversarial Perturbations & Digital Watermarking](https://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w32/Hayes_On_Visible_Adversarial_CVPR_2018_paper.pdf)
 
@@ -221,9 +277,7 @@ arXiv 2005; USENIX Security 2021
 
 1. **Certified defense** framework with two general principles: small receptive field to bound the number of corrupted features and secure aggregation for final robust prediction
 2. BagNet for small receptive fields; robust masking for secure aggregation, which detects and masks malicious feature values
-3. Efficient; SOTA performance (in terms of both clean accuracy and provable robust accuracy)
-4. Subsumes several existing and follow-up papers
-5. Not parameter-free
+3. Subsumes several existing and follow-up papers
 
 #### [Adversarial Training against Location-Optimized Adversarial Patches](https://arxiv.org/abs/2005.02313)
 
@@ -243,7 +297,6 @@ Available on ICLR open review in 10/2020; ICLR 2021
 
 1. **Certified defense**
 2. BagNet to bound the number of corrupted features; Heaviside step function & majority voting for secure aggregation
-3. SOTA performance on CIFAR-10
 4. Efficient, evaluate on different patch shapes
 
 #### [Certified Robustness against Physically-realizable Patch Attack via Randomized Cropping](https://openreview.net/forum?id=vttv9ADGuWF)
@@ -267,13 +320,18 @@ CISS 2021
 1. An **empirical defense** against *black-box* patch attacks
 2. A direct application of CompNet
 
+#### [Detecting Localized Adversarial Examples: A Generic Approach using Critical Region Analysis](https://arxiv.org/pdf/2102.05241.pdf)
+
+arXiv 2102
+
+1. empirical defense for attack detection
+
 #### [PatchGuard++: Efficient Provable Attack Detection against Adversarial Patches](https://arxiv.org/abs/2104.12609)
 
 arXiv 2104; ICLR workshop 2021
 
 1. **Certified defense** for *detecting an attack*
 2. A hybrid of PatchGuard and Minority Report
-3. SOTA provable robust accuracy (for attack detection) and clean accuracy on ImageNet
 
 #### [A Novel Lightweight Defense Method Against Adversarial Patches-Based Attacks on Automated Vehicle Make and Model Recognition Systems](https://link.springer.com/article/10.1007/s10922-021-09608-6)
 
@@ -308,6 +366,10 @@ ICCV 2021
 1. **empirical defense** via clipping feature norm.
 2. Oddly, this paper does not cite Clipped BagNet
 
+#### [Efficient Training Methods for Achieving Adversarial Robustness Against Sparse Attacks](https://iccv21-adv-workshop.github.io/short_paper/OFC_main_45.pdf)
+
+ICCV workshop
+
 #### [Certified Patch Robustness via Smoothed Vision Transformers](https://arxiv.org/abs/2110.07719)
 
 arXiv 2110
@@ -315,15 +377,30 @@ arXiv 2110
 1. **Certified defense.** ViT + [De-randomized Smoothing](https://arxiv.org/abs/2002.10733)
 2. Drop tokens that correspond to pixel masks to greatly improve efficiency. 
 
+#### [ScaleCert: Scalable Certified Defense against Adversarial Patches with Sparse Superficial Layers](https://arxiv.org/abs/2110.14120)
+
+arXiv 2111
+
+1. **certified defense** for *attack detection*
+2. (todo)
+
+#### [Detecting Adversarial Patch Attacks through Global-local Consistency](https://dl.acm.org/doi/abs/10.1145/3475724.3483606)
+
+MM workshop
+
+1. **empirical defense**
+
 [(go back to table of contents)](#table-of-contents)
 
-
+https://csis.gmu.edu/ksun/publications/INFOCOM21_TaintRadar.pdf
 
 ### Certified Defense Leaderboard
 
 TODO
 
-(see two concurrent works of [PatchCleanser](https://arxiv.org/abs/2108.09135) and [smoothed ViT](https://arxiv.org/abs/2110.07719) for state-of-the-art defense performance)
+Robust prediction: see two concurrent works of [PatchCleanser](https://arxiv.org/abs/2108.09135) and [smoothed ViT](https://arxiv.org/abs/2110.07719) for state-of-the-art defense performance
+
+Attack Detection: see [ScaleCert](https://arxiv.org/abs/2110.14120)
 
 
 
