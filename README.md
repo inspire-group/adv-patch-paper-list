@@ -190,6 +190,18 @@ arXiv 2110
 
 BMVC 2021
 
+#### [Adversarial Mask: Real-World Adversarial Attack Against Face Recognition Models](https://arxiv.org/abs/2111.10759)
+
+arXiv 2111
+
+1. physical world attack via wearing a weird mask
+
+#### [TnT Attacks! Universal Naturalistic Adversarial Patches Against Deep Neural Network Systems](https://arxiv.org/abs/2111.09999)
+
+arXiv 2111
+
+1. natural-looking patch attacks
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -390,17 +402,26 @@ MM workshop
 
 1. **empirical defense**
 
+#### [Zero-Shot Certified Defense against Adversarial Patches with Vision Transformers](https://arxiv.org/abs/2111.10481)
+
+arXiv 2111
+
+1. **certified defense** for *attack detection*.
+2. The idea is basically [Minority Report](https://arxiv.org/abs/2004.13799) with Vision Transformer
+3. *The evaluation of clean accuracy seems problematic... (feel free to correct me if I am wrong)*
+   1. *For a clean image, the authors consider the model prediction to be correct even when the defense believes there is an attack*
+
 [(go back to table of contents)](#table-of-contents)
 
 https://csis.gmu.edu/ksun/publications/INFOCOM21_TaintRadar.pdf
 
 ### Certified Defense Leaderboard
 
-TODO
+TODO. I am planning to build a comprehensive leaderboard for all certified defenses and their variants (e.g., different training methods, different backbones). Probably in Spring 2022.
 
 Robust prediction: see two concurrent works of [PatchCleanser](https://arxiv.org/abs/2108.09135) and [smoothed ViT](https://arxiv.org/abs/2110.07719) for state-of-the-art defense performance
 
-Attack Detection: see [ScaleCert](https://arxiv.org/abs/2110.14120)
+Attack Detection: see [ScaleCert](https://arxiv.org/abs/2110.14120) and [PatchZero](https://arxiv.org/abs/2111.10481) (the evaluation of PatchZero might be flawed?...)
 
 
 
