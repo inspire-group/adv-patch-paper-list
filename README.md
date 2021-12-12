@@ -358,6 +358,12 @@ arXiv 2105
 1. An **empirical defense** that use the magnitude and variance of the feature map values to detect an attack 
 2. focus more on the universal attack (both localized patch and global perturbations)
 
+#### [**Defending against Adversarial Patches with Robust Self-Attention**](http://www.google.com/url?q=http%3A%2F%2Fwww.gatsby.ucl.ac.uk%2F~balaji%2Fudl2021%2Faccepted-papers%2FUDL2021-paper-102.pdf&sa=D&sntz=1&usg=AFQjCNGJoUxi79GSFdIifBdsXf7lD4g2Kg)
+
+ICML UDL workshop
+
+1. **empirical defense**. detect and remove outliers in ViT
+
 #### [Turning Your Strength against You: Detecting and Mitigating Robust and Universal Adversarial Patch Attack](https://arxiv.org/abs/2108.05075)
 
 arXiv 2108
@@ -391,10 +397,11 @@ arXiv 2110
 
 #### [ScaleCert: Scalable Certified Defense against Adversarial Patches with Sparse Superficial Layers](https://arxiv.org/abs/2110.14120)
 
-arXiv 2111
+NeurIPS 2021
 
-1. **certified defense** for *attack detection*
-2. (todo)
+1. **certified defense** for *attack detection*. a fun paper using ideas from both minority reports and PatchGuard++
+2. The basic idea is apply (pixel) masks and check prediction consistency
+3. it further uses superficial important neurons (the neurons that contribute significantly to the shallow feature map values) to prune unimportant regions so that the number of masks is reduced.
 
 #### [Detecting Adversarial Patch Attacks through Global-local Consistency](https://dl.acm.org/doi/abs/10.1145/3475724.3483606)
 
