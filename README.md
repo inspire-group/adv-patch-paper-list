@@ -1,6 +1,8 @@
 # A Paper List for Localized Adversarial Patch Research
 ## Changelog
 
+- <u>02/22/2022</u>: added separate sections of "certified defenses"; working on a blog and the leaderboard for certified defenses.
+
 - <u>11/13/2021</u>: added explanations of different defense terminologies. added a few more recent papers.
 
 - <u>10/23/2021:</u> added recent papers, as well as some old papers that I missed in the initial release.
@@ -35,16 +37,16 @@ Note:  not all existing physically-realizable attacks are in the category of pat
 
 ### Focus
 
-1. <u>Test-time</u> attacks/defenses (not consider localized backdoor triggers)
+1. <u>Test-time</u> attacks/defenses (do not consider localized backdoor triggers)
 2. <u>2D computer vision tasks</u> (e.g., image classification, object detection, image segmentation)
-3. <u>Localized</u> attacks (not consider other physical attacks that are more "global", e.g., some stop sign attacks which require changing the entire stop sign background)
-4. <u>More on defenses</u>: I try to provide a comprehensive list of defense papers while the attack papers might be incomprehensive
+3. <u>Localized</u> attacks (do not consider other physical attacks that are more "global", e.g., some stop sign attacks which require changing the entire stop sign background)
+4. <u>More on defenses</u>: I aim to provide a comprehensive list of defense papers while the attack paper list might be incomprehensive
 
 ### Organization
 
 1. I first categorize the papers based on the task: <u>image classification vs object detection</u> (and semantic segmentation)
 2. I next group papers for <u>attacks vs defenses.</u>
-3. I tried to organize each group of papers <u>chronically</u>. I consider two timestamps: the time when the preprint is available (e.g., arXiv) and the time when a (published) paper was submitted for peer-review. I generally followed the minimum of these two, but I could make mistakes...
+3. I tried to organize each group of papers <u>chronically</u>. I consider two timestamps: the time when the preprint is available (e.g., arXiv) and the time when a (published) paper was submitted for peer-review. 
 
 I am actively developing this paper list (I haven't added notes for all papers). If you want to contribute to the paper list, add your paper, correct any of my comments, or share any of your suggestions, feel free to reach out :)
 
@@ -59,13 +61,16 @@ I am actively developing this paper list (I haven't added notes for all papers).
 - [**Image Classification**](#image-classification)
   
   - [Attacks](#attacks)
-  - [Defenses](#defenses)
+  - [Certified Defenses](#certified-defenses)
+  - [Empirical Defenses](#empirical-defenses)
   
 - [**Object Detection (and Semantic Segmentation)**](#object-detection-and-semantic-segmentation)
-  
+
   - [Attacks](#attacks-1)
-  - [Defenses](#defenses-1)
-  
+
+  - [Certified Defenses](#certified-defenses-1)
+  - [Empirical Defenses](#empirical-defenses-1)
+
   
 
 ## Defense Terminology
@@ -206,9 +211,117 @@ arXiv 2111
 
 
 
-### Defenses
+### Certified Defenses
 
-unless noted otherwise, the defense objective is robust prediction (instead of attack detection)
+#### [Certified Defenses for Adversarial Patches](https://arxiv.org/abs/2003.06693)
+
+ICLR 2020
+
+**The first certified defense**. 
+
+1. Show that previous two empirical defenses (DW and LGS) are broken against an adaptive attacker
+2. Adapt IBP (Interval Bound Propagation) for certified defense
+3. Evaluate robustness against different shapes
+4. Very expensive; only works for CIFAR-10
+
+#### [Clipped BagNet: Defending Against Sticker Attacks with Clipped Bag-of-features](https://ieeexplore.ieee.org/document/9283860)
+
+IEEE S&P Workshop on Deep Learning Security 2020
+
+1. **Certified defense**; clip BagNet features
+2. Efficient
+
+#### [(De)Randomized Smoothing for Certifiable Defense against Patch Attacks](https://arxiv.org/abs/2002.10733)
+
+arXiv 2002, NeurIPS 2020
+
+1. **Certified defense**; adapt ideas of randomized smoothing for $L_0$ adversary
+2. Majority voting on predictions made from cropped pixel patches
+3. Scale to ImageNet but expansive
+
+#### [Minority Reports Defense: Defending Against Adversarial Patches](https://arxiv.org/abs/2004.13799)
+
+arXiv 2004; ACNS workshop 2020
+
+1. **Certified defense** for *detecting an attack*
+2. Apply masks to the different locations of the input image and check inconsistency in masked predictions
+3. Too expansive to scale to ImageNet (?)
+
+#### [PatchGuard: A Provably Robust Defense against Adversarial Patches via Small Receptive Fields and Masking](https://arxiv.org/abs/2005.10884)
+
+arXiv 2005; USENIX Security 2021
+
+1. **Certified defense** framework with two general principles: small receptive field to bound the number of corrupted features and secure aggregation for final robust prediction
+2. BagNet for small receptive fields; robust masking for secure aggregation, which detects and masks malicious feature values
+3. Subsumes several existing and follow-up papers
+
+#### [Efficient Certified Defenses Against Patch Attacks on Image Classifiers](https://arxiv.org/abs/2102.04154)
+
+Available on ICLR open review in 10/2020; ICLR 2021
+
+1. **Certified defense**
+2. BagNet to bound the number of corrupted features; Heaviside step function & majority voting for secure aggregation
+3. Efficient, evaluate on different patch shapes
+
+#### [Certified Robustness against Physically-realizable Patch Attack via Randomized Cropping](https://openreview.net/forum?id=vttv9ADGuWF)
+
+Available on ICLR open review in 10/2020
+
+1. **Certified defense**
+2. Randomized image cropping + majority voting
+3. only probabilistic certified robustness
+
+#### [PatchGuard++: Efficient Provable Attack Detection against Adversarial Patches](https://arxiv.org/abs/2104.12609)
+
+arXiv 2104; ICLR workshop 2021
+
+1. **Certified defense** for *detecting an attack*
+2. A hybrid of PatchGuard and Minority Report
+
+#### [PatchCleanser: Certifiably Robust Defense against Adversarial Patches for Any Image Classifier](https://arxiv.org/abs/2108.09135)
+
+arXiv 2108; USENIX Security 2022
+
+1. **Certified defense** that is compatible with any state-of-the-art image classifier
+2. huge improvements in clean accuracy and certified robust accuracy (its clean accuracy is close to SOTA image classifier)
+
+#### [Certified Patch Robustness via Smoothed Vision Transformers](https://arxiv.org/abs/2110.07719)
+
+arXiv 2110
+
+1. **Certified defense.** ViT + [De-randomized Smoothing](https://arxiv.org/abs/2002.10733)
+2. Drop tokens that correspond to pixel masks to greatly improve efficiency. 
+
+#### [ScaleCert: Scalable Certified Defense against Adversarial Patches with Sparse Superficial Layers](https://arxiv.org/abs/2110.14120)
+
+NeurIPS 2021
+
+1. **certified defense** for *attack detection*. a fun paper using ideas from both minority reports and PatchGuard++
+2. The basic idea is apply (pixel) masks and check prediction consistency
+3. it further uses superficial important neurons (the neurons that contribute significantly to the shallow feature map values) to prune unimportant regions so that the number of masks is reduced.
+
+#### [Zero-Shot Certified Defense against Adversarial Patches with Vision Transformers](https://arxiv.org/abs/2111.10481)
+
+arXiv 2111
+
+1. **certified defense** for *attack detection*.
+2. The idea is basically [Minority Report](https://arxiv.org/abs/2004.13799) with Vision Transformer
+3. *The evaluation of clean accuracy seems problematic... (feel free to correct me if I am wrong)*
+   1. *For a clean image, the authors consider the model prediction to be correct even when the defense believes there is an attack*
+
+[(go back to table of contents)](#table-of-contents)
+
+### Certified Defense Leaderboard
+
+TODO. I am planning to build a comprehensive leaderboard for all certified defenses and their variants (e.g., different training methods, different backbones). Probably in Spring 2022.
+
+Robust prediction: see two concurrent works of [PatchCleanser](https://arxiv.org/abs/2108.09135) and [smoothed ViT](https://arxiv.org/abs/2110.07719) for state-of-the-art defense performance
+
+Attack Detection: see [ScaleCert](https://arxiv.org/abs/2110.14120) and [PatchZero](https://arxiv.org/abs/2111.10481) (the clean accuracy evaluation of PatchZero might be flawed?...)
+
+[(go back to table of contents)](#table-of-contents)
+
+### Empirical Defenses
 
 #### [On Visible Adversarial Perturbations & Digital Watermarking](https://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w32/Hayes_On_Visible_Adversarial_CVPR_2018_paper.pdf)
 
@@ -237,59 +350,17 @@ arXiv 1909, ICLR 2020
 2. Interestingly show that adversarial training for patch attack does not hurt model clean accuracy 
 3. Only works on small images
 
-#### [Certified Defenses for Adversarial Patches](https://arxiv.org/abs/2003.06693)
-
-ICLR 2020
-
-**The first certified defense**. 
-
-1. Show that previous two empirical defenses (DW and LGS) are broken against an adaptive attacker
-2. Adapt IBP (Interval Bound Propagation) for certified defense
-3. Evaluate robustness against different shapes
-4. Very expensive; only works for CIFAR-10
-
-#### [Clipped BagNet: Defending Against Sticker Attacks with Clipped Bag-of-features](https://ieeexplore.ieee.org/document/9283860)
-
-IEEE S&P Workshop on Deep Learning Security 2020
-
-1. **Certified defense**; clip BagNet features
-2. Efficient
-
 #### [SentiNet: Detecting Localized Universal Attacks Against Deep Learning Systems](https://arxiv.org/abs/1812.00292)
 
 arXiv 1812; IEEE S&P Workshop on Deep Learning Security 2020
 
 1. **Empirical defense** that leverages the *universality* of the attack (inapplicable to non-universal attacks)
 
-#### [(De)Randomized Smoothing for Certifiable Defense against Patch Attacks](https://arxiv.org/abs/2002.10733)
-
-arXiv 2002, NeurIPS 2020
-
-1. **Certified defense**; adapt ideas of randomized smoothing for $L_0$ adversary
-2. Majority voting on predictions made from cropped pixel patches
-3. Scale to ImageNet but expansive
-
 #### [Detecting Patch Adversarial Attacks with Image Residuals](https://arxiv.org/abs/2002.12504)
 
 arXiv 2002
 
 1. **empirical defense**
-
-#### [Minority Reports Defense: Defending Against Adversarial Patches](https://arxiv.org/abs/2004.13799)
-
-arXiv 2004; ACNS workshop 2020
-
-1. **Certified defense** for *detecting an attack*
-2. Apply masks to the different locations of the input image and check inconsistency in masked predictions
-3. Too expansive to scale to ImageNet (?)
-
-#### [PatchGuard: A Provably Robust Defense against Adversarial Patches via Small Receptive Fields and Masking](https://arxiv.org/abs/2005.10884)
-
-arXiv 2005; USENIX Security 2021
-
-1. **Certified defense** framework with two general principles: small receptive field to bound the number of corrupted features and secure aggregation for final robust prediction
-2. BagNet for small receptive fields; robust masking for secure aggregation, which detects and masks malicious feature values
-3. Subsumes several existing and follow-up papers
 
 #### [Adversarial Training against Location-Optimized Adversarial Patches](https://arxiv.org/abs/2005.02313)
 
@@ -300,24 +371,6 @@ arXiv 2005, ECCV workshop 2020
 #### [Vax-a-Net: Training-time Defence Against Adversarial Patch Attacks](https://arxiv.org/abs/2009.08194)
 
 arXiv 2009; ACCV 2020
-
-1. 
-
-#### [Efficient Certified Defenses Against Patch Attacks on Image Classifiers](https://arxiv.org/abs/2102.04154)
-
-Available on ICLR open review in 10/2020; ICLR 2021
-
-1. **Certified defense**
-2. BagNet to bound the number of corrupted features; Heaviside step function & majority voting for secure aggregation
-4. Efficient, evaluate on different patch shapes
-
-#### [Certified Robustness against Physically-realizable Patch Attack via Randomized Cropping](https://openreview.net/forum?id=vttv9ADGuWF)
-
-Available on ICLR open review in 10/2020
-
-1. **Certified defense**
-2. Randomized image cropping + majority voting
-3. only probabilistic certified robustness
 
 #### [Robustness Out of the Box: Compositional Representations Naturally Defend Against Black-Box Patch Attacks](https://arxiv.org/abs/2012.00558)
 
@@ -337,13 +390,6 @@ CISS 2021
 arXiv 2102
 
 1. empirical defense for attack detection
-
-#### [PatchGuard++: Efficient Provable Attack Detection against Adversarial Patches](https://arxiv.org/abs/2104.12609)
-
-arXiv 2104; ICLR workshop 2021
-
-1. **Certified defense** for *detecting an attack*
-2. A hybrid of PatchGuard and Minority Report
 
 #### [A Novel Lightweight Defense Method Against Adversarial Patches-Based Attacks on Automated Vehicle Make and Model Recognition Systems](https://link.springer.com/article/10.1007/s10922-021-09608-6)
 
@@ -370,13 +416,6 @@ arXiv 2108
 
 1. empirical defense; use universality 
 
-#### [PatchCleanser: Certifiably Robust Defense against Adversarial Patches for Any Image Classifier](https://arxiv.org/abs/2108.09135)
-
-arXiv 2108
-
-1. **Certified defense** that is compatible with any state-of-the-art image classifier
-2. huge improvements in clean accuracy and certified robust accuracy (its clean accuracy is close to SOTA image classifier)
-
 #### [Defending Against Universal Adversarial Patches by Clipping Feature Norms](https://openaccess.thecvf.com/content/ICCV2021/papers/Yu_Defending_Against_Universal_Adversarial_Patches_by_Clipping_Feature_Norms_ICCV_2021_paper.pdf)
 
 ICCV 2021
@@ -388,47 +427,15 @@ ICCV 2021
 
 ICCV workshop
 
-#### [Certified Patch Robustness via Smoothed Vision Transformers](https://arxiv.org/abs/2110.07719)
-
-arXiv 2110
-
-1. **Certified defense.** ViT + [De-randomized Smoothing](https://arxiv.org/abs/2002.10733)
-2. Drop tokens that correspond to pixel masks to greatly improve efficiency. 
-
-#### [ScaleCert: Scalable Certified Defense against Adversarial Patches with Sparse Superficial Layers](https://arxiv.org/abs/2110.14120)
-
-NeurIPS 2021
-
-1. **certified defense** for *attack detection*. a fun paper using ideas from both minority reports and PatchGuard++
-2. The basic idea is apply (pixel) masks and check prediction consistency
-3. it further uses superficial important neurons (the neurons that contribute significantly to the shallow feature map values) to prune unimportant regions so that the number of masks is reduced.
-
 #### [Detecting Adversarial Patch Attacks through Global-local Consistency](https://dl.acm.org/doi/abs/10.1145/3475724.3483606)
 
 MM workshop
 
 1. **empirical defense**
 
-#### [Zero-Shot Certified Defense against Adversarial Patches with Vision Transformers](https://arxiv.org/abs/2111.10481)
-
-arXiv 2111
-
-1. **certified defense** for *attack detection*.
-2. The idea is basically [Minority Report](https://arxiv.org/abs/2004.13799) with Vision Transformer
-3. *The evaluation of clean accuracy seems problematic... (feel free to correct me if I am wrong)*
-   1. *For a clean image, the authors consider the model prediction to be correct even when the defense believes there is an attack*
-
 [(go back to table of contents)](#table-of-contents)
 
 https://csis.gmu.edu/ksun/publications/INFOCOM21_TaintRadar.pdf
-
-### Certified Defense Leaderboard
-
-TODO. I am planning to build a comprehensive leaderboard for all certified defenses and their variants (e.g., different training methods, different backbones). Probably in Spring 2022.
-
-Robust prediction: see two concurrent works of [PatchCleanser](https://arxiv.org/abs/2108.09135) and [smoothed ViT](https://arxiv.org/abs/2110.07719) for state-of-the-art defense performance
-
-Attack Detection: see [ScaleCert](https://arxiv.org/abs/2110.14120) and [PatchZero](https://arxiv.org/abs/2111.10481) (the evaluation of PatchZero might be flawed?...)
 
 
 
@@ -542,7 +549,27 @@ MM 2021
 
 
 
-### Defenses
+### Certified Defenses
+
+#### [DetectorGuard: Provably Securing Object Detectors against Localized Patch Hiding Attacks](https://arxiv.org/abs/2102.02956)
+
+arXiv 2102; CCS 2021
+
+1. The **first certified defense** for patch hiding attack
+2. Adapt robust image classifiers for robust object detection
+3. Provable robustness at a negligible cost of clean performance
+
+#### [ObjectSeeker: Certifiably Robust Object Detection against Patch Hiding Attacks via Patch-agnostic Masking](https://arxiv.org/abs/2202.01811)
+
+arXiv 2202
+
+1. use pixel masks to remove the adversarial patch in a certifiably robust manner.
+2. a significant improvement in certified robustness
+3. also discuss different robustness notions
+
+[(go back to table of contents)](#table-of-contents)
+
+### Empirical Defenses
 
 #### [Role of Spatial Context in Adversarial Robustness for Object Detection](https://arxiv.org/abs/1910.00068)
 
@@ -554,14 +581,6 @@ arXiv 1910; CVPR workshop 2020
 #### [Meta Adversarial Training against Universal Patches](https://arxiv.org/pdf/2101.11453.pdf)
 
 arXiv 2101; ICML 2021 workshop
-
-#### [DetectorGuard: Provably Securing Object Detectors against Localized Patch Hiding Attacks](https://arxiv.org/abs/2102.02956)
-
-arXiv 2102; CCS 2021
-
-1. The **first certified defense** for patch hiding attack
-2. Adapt robust image classifiers for robust object detection
-3. Provable robustness at a negligible cost of clean performance
 
 #### [Adversarial YOLO: Defense Human Detection Patch Attacks via Detecting Adversarial Patches](https://arxiv.org/abs/2103.08860)
 
@@ -581,6 +600,10 @@ arXiv 2106
 MM 2021
 
 1. **Empirical defense.** Adversarially train a "MaskNet" to detect and mask the patch
+
+#### [Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection](https://arxiv.org/abs/2112.04532)
+
+arXiv 2112
 
 [(go back to table of contents)](#table-of-contents)
 
