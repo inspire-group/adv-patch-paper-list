@@ -1,13 +1,13 @@
 # A Paper List for Localized Adversarial Patch Research
 ## Changelog
 
-- <u>02/22/2022</u>: added separate sections of "certified defenses"; working on a blog and the leaderboard for certified defenses.
+- <u>03/2022</u>: **released the [leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing) for certified defenses for image classification against adversarial patches!!** 
 
-- <u>11/13/2021</u>: added explanations of different defense terminologies. added a few more recent papers.
+- <u>02/2022</u>: added separate sections of "certified defenses"; working on a blog and the leaderboard for certified defenses.
 
-- <u>10/23/2021:</u> added recent papers, as well as some old papers that I missed in the initial release.
+- <u>11/2021</u>: added explanations of different defense terminologies. added a few more recent papers.
 
-- <u>08/23/2021:</u> released the paper list!
+- <u>08/2021:</u> released the paper list!
 
   
 
@@ -62,6 +62,7 @@ I am actively developing this paper list (I haven't added notes for all papers).
   
   - [Attacks](#attacks)
   - [Certified Defenses](#certified-defenses)
+  - [Certified Robustness Leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing)
   - [Empirical Defenses](#empirical-defenses)
   
 - [**Object Detection (and Semantic Segmentation)**](#object-detection-and-semantic-segmentation)
@@ -213,6 +214,12 @@ arXiv 2111
 
 ### Certified Defenses
 
+#### *<u>Check out this [leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing) for certified robustness against adversarial patches!</u>*
+
+The leaderboard provides a summary of all papers in this section!
+
+
+
 #### [Certified Defenses for Adversarial Patches](https://arxiv.org/abs/2003.06693)
 
 ICLR 2020
@@ -222,7 +229,7 @@ ICLR 2020
 1. Show that previous two empirical defenses (DW and LGS) are broken against an adaptive attacker
 2. Adapt IBP (Interval Bound Propagation) for certified defense
 3. Evaluate robustness against different shapes
-4. Very expensive; only works for CIFAR-10
+4. Very expensive; only works for CIFAR-10 and small models
 
 #### [Clipped BagNet: Defending Against Sticker Attacks with Clipped Bag-of-features](https://ieeexplore.ieee.org/document/9283860)
 
@@ -237,7 +244,7 @@ arXiv 2002, NeurIPS 2020
 
 1. **Certified defense**; adapt ideas of randomized smoothing for $L_0$ adversary
 2. Majority voting on predictions made from cropped pixel patches
-3. Scale to ImageNet but expansive
+3. Scale to ImageNet but expensive
 
 #### [Minority Reports Defense: Defending Against Adversarial Patches](https://arxiv.org/abs/2004.13799)
 
@@ -245,7 +252,7 @@ arXiv 2004; ACNS workshop 2020
 
 1. **Certified defense** for *detecting an attack*
 2. Apply masks to the different locations of the input image and check inconsistency in masked predictions
-3. Too expansive to scale to ImageNet (?)
+3. Too expensive to scale to ImageNet (?)
 
 #### [PatchGuard: A Provably Robust Defense against Adversarial Patches via Small Receptive Fields and Masking](https://arxiv.org/abs/2005.10884)
 
@@ -278,6 +285,14 @@ arXiv 2104; ICLR workshop 2021
 1. **Certified defense** for *detecting an attack*
 2. A hybrid of PatchGuard and Minority Report
 
+#### [ScaleCert: Scalable Certified Defense against Adversarial Patches with Sparse Superficial Layers](https://arxiv.org/abs/2110.14120)
+
+NeurIPS 2021
+
+1. **certified defense** for *attack detection*. a fun paper using ideas from both minority reports and PatchGuard++
+2. The basic idea is apply (pixel) masks and check prediction consistency
+3. it further uses superficial important neurons (the neurons that contribute significantly to the shallow feature map values) to prune unimportant regions so that the number of masks is reduced.
+
 #### [PatchCleanser: Certifiably Robust Defense against Adversarial Patches for Any Image Classifier](https://arxiv.org/abs/2108.09135)
 
 arXiv 2108; USENIX Security 2022
@@ -292,14 +307,6 @@ arXiv 2110
 1. **Certified defense.** ViT + [De-randomized Smoothing](https://arxiv.org/abs/2002.10733)
 2. Drop tokens that correspond to pixel masks to greatly improve efficiency. 
 
-#### [ScaleCert: Scalable Certified Defense against Adversarial Patches with Sparse Superficial Layers](https://arxiv.org/abs/2110.14120)
-
-NeurIPS 2021
-
-1. **certified defense** for *attack detection*. a fun paper using ideas from both minority reports and PatchGuard++
-2. The basic idea is apply (pixel) masks and check prediction consistency
-3. it further uses superficial important neurons (the neurons that contribute significantly to the shallow feature map values) to prune unimportant regions so that the number of masks is reduced.
-
 #### [Zero-Shot Certified Defense against Adversarial Patches with Vision Transformers](https://arxiv.org/abs/2111.10481)
 
 arXiv 2111
@@ -309,15 +316,7 @@ arXiv 2111
 3. *The evaluation of clean accuracy seems problematic... (feel free to correct me if I am wrong)*
    1. *For a clean image, the authors consider the model prediction to be correct even when the defense believes there is an attack*
 
-[(go back to table of contents)](#table-of-contents)
-
-### Certified Defense Leaderboard
-
-TODO. I am planning to build a comprehensive leaderboard for all certified defenses and their variants (e.g., different training methods, different backbones). Probably in Spring 2022.
-
-Robust prediction: see two concurrent works of [PatchCleanser](https://arxiv.org/abs/2108.09135) and [smoothed ViT](https://arxiv.org/abs/2110.07719) for state-of-the-art defense performance
-
-Attack Detection: see [ScaleCert](https://arxiv.org/abs/2110.14120) and [PatchZero](https://arxiv.org/abs/2111.10481) (the clean accuracy evaluation of PatchZero might be flawed?...)
+#### *<u>Check out this [leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing) for certified robustness against adversarial patches!</u>*
 
 [(go back to table of contents)](#table-of-contents)
 
