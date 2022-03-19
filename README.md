@@ -80,15 +80,15 @@ I am actively developing this paper list (I haven't added notes for all papers).
 
 There are two categories of defenses that have different robustness guarantees.
 
-The former (<u>empirical defense</u> for short) are based on heuristic and does not have any security guarantee against an *adaptive* attacker. 
+The former (<u>empirical defense</u> for short) are based on heuristic and does not have any formal security guarantee against an *adaptive* attacker who has full knowledge of the defense setup. 
 
-On the other hand, the latter (<u>certified defense</u> for short) have provable (or certifiable) robustness guarantee for certain *certified* images, against any adaptive white-box attacker within the threat model. We evaluate certified defenses using the metric named *certified robust accuracy*; that is the fraction of test images for which the defense can certify the robustness. 
+On the other hand, the latter (<u>certified defense</u> for short) have provable (or certifiable) robustness guarantee for certain *certified* images, against *any* adaptive white-box attacker within the threat model. The reported certified robustness is a *provable lower bound* of model performance against any adaptive attack within the threat model. 
 
 **Notes:**  
 
-1. The robustness guarantee of certified defense is agnostic to attack algorithms; this property lifts the burden of designing sophisticated attack algorithms. This is also why certified defenses do not have "attack code" in their source code.
+1. The robustness guarantee of certified defense is agnostic to attack algorithms (recall the "lower-bound" property discussed above); this property lifts the burden of designing sophisticated adaptive attack algorithms. This is also why certified defenses do not provide "attack code" or "adversarial images" in their source code. 
 
-2. Strictly speaking, it is usually unfair to directly compare the performance of empirical defenses and certified defenses due to the difference in the notions of robustness. Some empirical defenses might have (seemingly) higher *empirical robust accuracy* than certified defenses. However, those empirical defenses have <u>zero</u> *certified robust accuracy*, and their empirical robust accuracy might drop greatly given a stronger attacker.
+2. Strictly speaking, it is unfair to directly compare the performance of empirical defenses and certified defenses due to their different robustness notions. Some empirical defenses might have (seemingly) high *empirical robustness*. However, those empirical defenses have <u>zero</u> *certified robust accuracy*, and their empirical robust accuracy might drop greatly given a stronger attacker.
 
 ### Robust Prediction vs Attack Detection
 
@@ -432,6 +432,11 @@ MM workshop
 
 1. **empirical defense**
 
+#### [ImageNet-Patch: A Dataset for Benchmarking Machine Learning Robustness against Adversarial Patches](https://arxiv.org/abs/2203.04412)
+
+1. a dataset for adversarial patches
+2. This paper did not cite any adversarial patch defense papers...
+
 [(go back to table of contents)](#table-of-contents)
 
 https://csis.gmu.edu/ksun/publications/INFOCOM21_TaintRadar.pdf
@@ -544,6 +549,12 @@ MM 2021
 
 1. an improved attack from adversarial T-shirt. The patch looks more natural (e.g., an Ivysaur!)
 
+#### [Adversarial Texture for Fooling Person Detectors in the Physical World](https://arxiv.org/abs/2203.03373)
+
+CVPR 2022
+
+1. consider cameras from different angles
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -603,6 +614,10 @@ MM 2021
 #### [Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection](https://arxiv.org/abs/2112.04532)
 
 arXiv 2112
+
+#### [Defending From Physically-Realizable Adversarial Attacks Through Internal Over-Activation Analysis](https://arxiv.org/abs/2203.07341)
+
+arXiv 2203
 
 [(go back to table of contents)](#table-of-contents)
 
