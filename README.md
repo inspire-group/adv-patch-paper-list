@@ -1,7 +1,7 @@
 # A Paper List for Localized Adversarial Patch Research
 ## Changelog
 
-- <u>03/2022</u>: **released the [leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing) for certified defenses for image classification against adversarial patches!!** 
+- <u>03/2022</u>: **released the [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified defenses for image classification against adversarial patches!!** 
 
 - <u>02/2022</u>: added separate sections of "certified defenses"; working on a blog and the leaderboard for certified defenses.
 
@@ -13,9 +13,9 @@
 
 ## What is the localized adversarial patch attack?
 
-Different from classic adversarial examples that are configured to has a small L_p norm distance to the normal examples, a localized adversarial patch attacker can <u>arbitrarily modify</u> the pixel values <u>within a small region</u>.
+Different from classic adversarial examples that are configured to have a small L_p norm distance to the normal examples, a localized adversarial patch attacker can <u>arbitrarily modify</u> the pixel values <u>within a small region</u>.
 
-The attack algorithm is similar to those for the classic L_p adversarial example attack. You define a loss function and then optimize your perturbation to attain attack objective. The only difference is that now 1) you can only optimize over pixels within a small region, 2) but within that region, the pixel values are be arbitrary as long as they are valid pixels.
+The attack algorithm is similar to those for the classic L_p adversarial example attack. You define a loss function and then optimize your perturbation to attain the attack objective. The only difference is that now 1) you can only optimize over pixels within a small region, 2) but within that region, the pixel values can be arbitrary as long as they are valid pixels.
 
 Example of localized adversarial patch attack (image from [Brown et al.](https://arxiv.org/abs/1712.09665)):
 
@@ -27,7 +27,7 @@ Example of localized adversarial patch attack (image from [Brown et al.](https:/
 
 <u>It can be realized in the physical world!</u>
 
-Since all perturbations are within a small region, we can print and attach the patch in our physical world. This type of attack impose a real-world threat on ML systems!
+Since all perturbations are within a small region, we can print and attach the patch in our physical world. This type of attack imposes a real-world threat on ML systems!
 
 Note:  not all existing physically-realizable attacks are in the category of patch attacks, but the localized patch attack is (one of) the simplest and the most popular physical attacks.
 
@@ -80,7 +80,7 @@ I am actively developing this paper list (I haven't added notes for all papers).
 
 There are two categories of defenses that have different robustness guarantees.
 
-The former (<u>empirical defense</u> for short) are based on heuristic and does not have any formal security guarantee against an *adaptive* attacker who has full knowledge of the defense setup. 
+The former (<u>empirical defense</u> for short) are based on heuristics and does not have any formal security guarantee against an *adaptive* attacker who has full knowledge of the defense setup. 
 
 On the other hand, the latter (<u>certified defense</u> for short) have provable (or certifiable) robustness guarantee for certain *certified* images, against *any* adaptive white-box attacker within the threat model. The reported certified robustness is a *provable lower bound* of model performance against any adaptive attack within the threat model. 
 
@@ -94,15 +94,15 @@ On the other hand, the latter (<u>certified defense</u> for short) have provable
 
 There are also two different defense objectives (robustness notions).
 
-<u>Robust prediction</u> requires the defense to make correct decisions (e.g., correct classification label, correct bounding box detection) for all the same, even in the presence of an attacker.
+<u>Robust prediction</u> aims to always make correct decisions (e.g., correct classification label, correct bounding box detection), even in the presence of an attacker.
 
-<u>Attack detection</u>, on the other hand, only aims to detect an attack. That is, if the defense detects an attacker, it issues an alert and abstains from making predictions; if no attack is detected, it performs normal predictions. We can think of this type of defense as adding a special token "ALERT" to the model output space. 
+<u>Attack detection</u>, on the other hand, only aims to detect an attack. If the defense detects an attack, it issues an alert and abstains from making predictions; if no attack is detected, it performs normal predictions. We can think of this type of defense as adding a special token "ALERT" to the model output space. 
 
 **Notes:**
 
-1. Apparently, the robust prediction defense is hard than the attack detection defense. The detect-and-alert setup might be problematic when human fallback is unavailable.
+1. Apparently, the robust prediction defense is harder than the attack detection defense. The detect-and-alert setup might be problematic when human fallback is unavailable.
 2. Nevertheless, we are still interested in studying attack detection defense. There is [an interesting paper](https://arxiv.org/abs/2107.11630) discussing the connection between these two types of defense.
-3. How we evaluate the robustness of attack detection defense.
+3. How do we evaluate the robustness of attack detection defense:
    1. for clean images: perform the defense, and only consider a correct prediction when the output matches the ground-truth
    2. for adversarial images: perform the defense, count a robust prediction if the prediction output is ALERT or matches the ground-truth
 
@@ -110,12 +110,25 @@ There are also two different defense objectives (robustness notions).
 
 ### Attacks 
 
+#### [Accessorize to a Crime: Real and Stealthy Attacks on State-of-the-Art Face Recognition](https://dl.acm.org/doi/10.1145/2976749.2978392)
+
+CCS 2016
+
+1. uses "adversarial glasses" to fool face recognition models
+
+#### [Is Deep Learning Safe for Robot Vision? Adversarial Examples against the iCub Humanoid](https://arxiv.org/abs/1708.06939)
+
+arXiv 1708; ICCV Workshop 2017
+
+1. adversarial example attack against robot vision
+2. discusses the concept of localized perturbations, which could mimic attaching a sticker in the real world
+
 #### [Adversarial Patch](https://arxiv.org/abs/1712.09665)
 
 arXiv 1712; NeurIPS workshop 2017
 
-1. **The first paper** that introduces the concept of adversarial patch attacks
-2. Demonstrate a universal physical world attack
+1. **The first paper** that explicitly introduces the concept of **adversarial patch** attacks
+2. Demonstrate a universal **physical** world attack
 
 #### [LaVAN: Localized and Visible Adversarial Noise](https://arxiv.org/abs/1801.02608)
 
@@ -129,6 +142,10 @@ arXiv 1801; ICML 2018
 AAAI 2019
 
 1. generate imperceptible patches.
+
+#### [Generate (non-software) Bugs to Fool Classifiers](https://arxiv.org/abs/1911.08644)
+
+AAAI 2020
 
 #### [PatchAttack: A Black-box Texture-based Attack with Reinforcement Learning](https://arxiv.org/abs/2004.05682)
 
@@ -186,7 +203,7 @@ IEEE Access
 
 arXiv 2110
 
-1. A analysis of perturbing part of tokens of ViT
+1. An analysis of perturbing part of tokens of ViT
 
 #### [One Thing to Fool them All: Generating Interpretable, Universal, and Physically-Realizable Adversarial Features](https://arxiv.org/abs/2110.03605)
 
@@ -214,7 +231,7 @@ arXiv 2111
 
 ### Certified Defenses
 
-#### *<u>Check out this [leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing) for certified robustness against adversarial patches!</u>*
+#### *<u>Check out this [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified robustness against adversarial patches!</u>*
 
 The leaderboard provides a summary of all papers in this section!
 
@@ -290,7 +307,7 @@ arXiv 2104; ICLR workshop 2021
 NeurIPS 2021
 
 1. **certified defense** for *attack detection*. a fun paper using ideas from both minority reports and PatchGuard++
-2. The basic idea is apply (pixel) masks and check prediction consistency
+2. The basic idea is to apply (pixel) masks and check prediction consistency
 3. it further uses superficial important neurons (the neurons that contribute significantly to the shallow feature map values) to prune unimportant regions so that the number of masks is reduced.
 
 #### [PatchCleanser: Certifiably Robust Defense against Adversarial Patches for Any Image Classifier](https://arxiv.org/abs/2108.09135)
@@ -302,10 +319,18 @@ arXiv 2108; USENIX Security 2022
 
 #### [Certified Patch Robustness via Smoothed Vision Transformers](https://arxiv.org/abs/2110.07719)
 
-arXiv 2110
+arXiv 2110; CVPR 2022
 
 1. **Certified defense.** ViT + [De-randomized Smoothing](https://arxiv.org/abs/2002.10733)
 2. Drop tokens that correspond to pixel masks to greatly improve efficiency. 
+
+#### [Towards Practical Certifiable Patch Defense with Vision Transformer](https://arxiv.org/abs/2203.08519)
+
+CVPR 2022
+
+1. **Certified defense.** ViT + [De-randomized Smoothing](https://arxiv.org/abs/2002.10733)
+2. A progressive training technique for smoothed ViT 
+3. Isolated (instead of global) self-attention to improve defense efficiency
 
 #### [Zero-Shot Certified Defense against Adversarial Patches with Vision Transformers](https://arxiv.org/abs/2111.10481)
 
@@ -316,7 +341,7 @@ arXiv 2111
 3. *The evaluation of clean accuracy seems problematic... (feel free to correct me if I am wrong)*
    1. *For a clean image, the authors consider the model prediction to be correct even when the defense believes there is an attack*
 
-#### *<u>Check out this [leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing) for certified robustness against adversarial patches!</u>*
+#### *<u>Check out this [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified robustness against adversarial patches!</u>*
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -400,7 +425,7 @@ Journal of Network and Systems Management
 
 arXiv 2105
 
-1. An **empirical defense** that use the magnitude and variance of the feature map values to detect an attack 
+1. An **empirical defense** that uses the magnitude and variance of the feature map values to detect an attack 
 2. focus more on the universal attack (both localized patch and global perturbations)
 
 #### [**Defending against Adversarial Patches with Robust Self-Attention**](http://www.google.com/url?q=http%3A%2F%2Fwww.gatsby.ucl.ac.uk%2F~balaji%2Fudl2021%2Faccepted-papers%2FUDL2021-paper-102.pdf&sa=D&sntz=1&usg=AFQjCNGJoUxi79GSFdIifBdsXf7lD4g2Kg)
@@ -424,22 +449,25 @@ ICCV 2021
 
 #### [Efficient Training Methods for Achieving Adversarial Robustness Against Sparse Attacks](https://iccv21-adv-workshop.github.io/short_paper/OFC_main_45.pdf)
 
-ICCV workshop
+ICCV workshop 2021
 
 #### [Detecting Adversarial Patch Attacks through Global-local Consistency](https://dl.acm.org/doi/abs/10.1145/3475724.3483606)
 
-MM workshop
+MM workshop 2021
 
 1. **empirical defense**
 
 #### [ImageNet-Patch: A Dataset for Benchmarking Machine Learning Robustness against Adversarial Patches](https://arxiv.org/abs/2203.04412)
 
-1. a dataset for adversarial patches
-2. This paper did not cite any adversarial patch defense papers...
+arXiv 2203
+
+1. A dataset for adversarial patches
+2. *Clarification from the authors:* the main purpose of the ImageNet-Patch dataset is to provide a fast benchmark of models against patch attacks, but not strictly related to *defenses* against adversarial patches, which is why they did not cite any adversarial patch defense papers.
+3. (I ran some experiments; the transferability to architectures like ViT and ResMLP seemed low)
 
 [(go back to table of contents)](#table-of-contents)
 
-https://csis.gmu.edu/ksun/publications/INFOCOM21_TaintRadar.pdf
+
 
 
 
@@ -457,13 +485,13 @@ arXiv 1806; AAAI workshop 2019
 
 arXiv 1904; CVPR workshop 2019
 
-1. using a rigid board printed with adversarial perturbations to evade detection of person
+1. using a rigid board printed with adversarial perturbations to evade the detection of a person
 
 #### [On Physical Adversarial Patches for Object Detection](https://arxiv.org/abs/1906.11897)
 
 arXiv 1906
 
-1. interestingly show that a physical-world patch at the background (far away from the victim objects) can have malicious effect
+1. interestingly show that a physical-world patch in the background (far away from the victim objects) can have malicious effect
 
 #### [Universal Physical Camouflage Attacks on Object Detectors](https://arxiv.org/pdf/1909.04326.pdf)
 
@@ -603,7 +631,7 @@ arXiv 2103
 arXiv 2106
 
 1. Two **empirical defenses** for patch hiding attack
-2. Feed small image region to the detector; grows the region with some heuristics; detect an attack when YOLO detects objects in a smaller region but miss objects in a larger expanded region.
+2. Feed small image region to the detector; grows the region with some heuristics; detect an attack when YOLO detects objects in a smaller region but misses objects in a larger expanded region.
 
 #### [Adversarial Pixel Masking: A Defense against Physical Attacks for Pre-trained Object Detectors](https://dl.acm.org/doi/abs/10.1145/3474085.3475338)
 
@@ -620,4 +648,3 @@ arXiv 2112
 arXiv 2203
 
 [(go back to table of contents)](#table-of-contents)
-
