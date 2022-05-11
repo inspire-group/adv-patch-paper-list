@@ -1,4 +1,5 @@
 # A Paper List for Localized Adversarial Patch Research
+
 ## Changelog
 
 - <u>03/2022</u>: **released the [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified defenses for image classification against adversarial patches!!** 
@@ -8,8 +9,6 @@
 - <u>11/2021</u>: added explanations of different defense terminologies. added a few more recent papers.
 
 - <u>08/2021:</u> released the paper list!
-
-  
 
 ## What is the localized adversarial patch attack?
 
@@ -21,8 +20,6 @@ Example of localized adversarial patch attack (image from [Brown et al.](https:/
 
 <img src="asset/patch-example.png" width="60%" alt="patch image example" align=center>
 
-
-
 ## What makes this attack interesting?
 
 <u>It can be realized in the physical world!</u>
@@ -30,8 +27,6 @@ Example of localized adversarial patch attack (image from [Brown et al.](https:/
 Since all perturbations are within a small region, we can print and attach the patch in our physical world. This type of attack imposes a real-world threat on ML systems!
 
 Note:  not all existing physically-realizable attacks are in the category of patch attacks, but the localized patch attack is (one of) the simplest and the most popular physical attacks.
-
-
 
 ## About this paper list
 
@@ -50,11 +45,10 @@ Note:  not all existing physically-realizable attacks are in the category of pat
 
 I am actively developing this paper list (I haven't added notes for all papers). If you want to contribute to the paper list, add your paper, correct any of my comments, or share any of your suggestions, feel free to reach out :)
 
-
-
 ## Table of Contents
-- [**Defense Terminology**](#defense-terminology)
 
+- [**Defense Terminology**](#defense-terminology)
+  
   - [Empirically Robust Defenses vs Provably/certifiably Robust Defenses](#empirically-robust-defenses-vs-provablycertifiably-robust-defenses)
   - [Robust Prediction vs Attack Detection](#robust-prediction-vs-attack-detection)
 
@@ -64,15 +58,14 @@ I am actively developing this paper list (I haven't added notes for all papers).
   - [Certified Defenses](#certified-defenses)
   - [Certified Robustness Leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing)
   - [Empirical Defenses](#empirical-defenses)
-  
+
 - [**Object Detection (and Semantic Segmentation)**](#object-detection-and-semantic-segmentation)
-
-  - [Attacks](#attacks-1)
-
-  - [Certified Defenses](#certified-defenses-1)
-  - [Empirical Defenses](#empirical-defenses-1)
-
   
+  - [Attacks](#attacks-1)
+  
+  - [Certified Defenses](#certified-defenses-1)
+  
+  - [Empirical Defenses](#empirical-defenses-1)
 
 ## Defense Terminology
 
@@ -108,7 +101,7 @@ There are also two different defense objectives (robustness notions).
 
 ## Image Classification
 
-### Attacks 
+### Attacks
 
 #### [Accessorize to a Crime: Real and Stealthy Attacks on State-of-the-Art Face Recognition](https://dl.acm.org/doi/10.1145/2976749.2978392)
 
@@ -225,17 +218,27 @@ arXiv 2111
 
 1. natural-looking patch attacks
 
+#### [Patch-Fool: Are Vision Transformers Always Robust Against Adversarial Perturbations?](https://arxiv.org/abs/2203.08392)
+
+ICLR 2022
+
+1. not exactly a patch attack. use pixel patches to attack ViT
+
+#### [Defensive Patches for Robust Recognition in the Physical World](https://arxiv.org/abs/2204.06213)
+
+CVPR 2022
+
+1. not exactly an attack. use patch for good purposes...
+
+#### [Surreptitious Adversarial Examples through Functioning QR Code](https://www.mdpi.com/2313-433X/8/5/122/htm)
+
 [(go back to table of contents)](#table-of-contents)
-
-
 
 ### Certified Defenses
 
 #### *<u>Check out this [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified robustness against adversarial patches!</u>*
 
 The leaderboard provides a summary of all papers in this section!
-
-
 
 #### [Certified Defenses for Adversarial Patches](https://arxiv.org/abs/2003.06693)
 
@@ -465,11 +468,9 @@ arXiv 2203
 2. *Clarification from the authors:* the main purpose of the ImageNet-Patch dataset is to provide a fast benchmark of models against patch attacks, but not strictly related to *defenses* against adversarial patches, which is why they did not cite any adversarial patch defense papers.
 3. (I ran some experiments; the transferability to architectures like ViT and ResMLP seemed low)
 
+#### [Adversarial Robustness is Not Enough: Practical Limitations for Securing Facial Authentication](https://dl.acm.org/doi/abs/10.1145/3510548.3519369)
+
 [(go back to table of contents)](#table-of-contents)
-
-
-
-
 
 ## Object Detection (and Semantic Segmentation)
 
@@ -585,8 +586,6 @@ CVPR 2022
 
 [(go back to table of contents)](#table-of-contents)
 
-
-
 ### Certified Defenses
 
 #### [DetectorGuard: Provably Securing Object Detectors against Localized Patch Hiding Attacks](https://arxiv.org/abs/2102.02956)
@@ -646,5 +645,7 @@ arXiv 2112
 #### [Defending From Physically-Realizable Adversarial Attacks Through Internal Over-Activation Analysis](https://arxiv.org/abs/2203.07341)
 
 arXiv 2203
+
+#### [Defending Against Person Hiding Adversarial Patch Attack with a Universal White Frame](https://arxiv.org/abs/2204.13004)
 
 [(go back to table of contents)](#table-of-contents)
