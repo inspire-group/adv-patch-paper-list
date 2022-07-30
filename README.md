@@ -2,9 +2,9 @@
 
 ## Changelog
 
-- <u>03/2022</u>: **released the [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified defenses for image classification against adversarial patches!!** 
+- <u>07/2022</u>: wrote two blog posts for adversarial patches and certifiably robust image classification [post1](https://freedom-to-tinker.com/2022/07/12/toward-trustworthy-machine-learning-an-example-in-defending-against-adversarial-patch-attacks/">) [post2](https://freedom-to-tinker.com/2022/07/19/toward-trustworthy-machine-learning-an-example-in-defending-against-adversarial-patch-attacks-2/)
 
-- <u>02/2022</u>: added separate sections of "certified defenses"; working on a blog and the leaderboard for certified defenses.
+- <u>03/2022</u>: **released the [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified defenses for image classification against adversarial patches!!** 
 
 - <u>11/2021</u>: added explanations of different defense terminologies. added a few more recent papers.
 
@@ -35,11 +35,10 @@ Note:  not all existing physically-realizable attacks are in the category of pat
 1. <u>Test-time</u> attacks/defenses (do not consider localized backdoor triggers)
 2. <u>2D computer vision tasks</u> (e.g., image classification, object detection, image segmentation)
 3. <u>Localized</u> attacks (do not consider other physical attacks that are more "global", e.g., some stop sign attacks which require changing the entire stop sign background)
-4. <u>More on defenses</u>: I aim to provide a comprehensive list of defense papers while the attack paper list might be incomprehensive
 
 ### Organization
 
-1. I first categorize the papers based on the task: <u>image classification vs object detection</u> (and semantic segmentation)
+1. I first categorize the papers based on the task: <u>image classification vs object detection</u> (and semantic segmentation, and other tasks)
 2. I next group papers for <u>attacks vs defenses.</u>
 3. I tried to organize each group of papers <u>chronically</u>. I consider two timestamps: the time when the preprint is available (e.g., arXiv) and the time when a (published) paper was submitted for peer-review. 
 
@@ -73,15 +72,19 @@ I am actively developing this paper list (I haven't added notes for all papers).
 
 There are two categories of defenses that have different robustness guarantees.
 
-The former (<u>empirical defense</u> for short) are based on heuristics and does not have any formal security guarantee against an *adaptive* attacker who has full knowledge of the defense setup. 
+To evaluate the robustness of an <u>empirical defense</u>, we use <u>concrete attack algorithms</u> to attack the defense. The evaluated robustness does not have formal security guarantee:  it might be compromised by smarter attackers in the future.
 
-On the other hand, the latter (<u>certified defense</u> for short) have provable (or certifiable) robustness guarantee for certain *certified* images, against *any* adaptive white-box attacker within the threat model. The reported certified robustness is a *provable lower bound* of model performance against any adaptive attack within the threat model. 
+To evaluate a <u>certified defense</u>, we need to develop a <u>robustness certification procedure</u> to determine whether the defense has certifiable/provable robustness for a given input against a given threat model. We need to formally prove that the certification results will hold for any attack within the threat model, including ones that have full knowledge of the defense algorithm, setup, etc.
 
 **Notes:**  
 
-1. The robustness guarantee of certified defense is agnostic to attack algorithms (recall the "lower-bound" property discussed above); this property lifts the burden of designing sophisticated adaptive attack algorithms. This is also why certified defenses do not provide "attack code" or "adversarial images" in their source code. 
+1. We use certification procedure to evaluate the robustness of certified defenses; the certification procedure is agnostic to attack algorithms (i.e., it holds for any attack algorithm). As a bonus, this agnostic property lifts the burden of designing sophisticated adaptive attack algorithms for robustness evaluation. This is also why certified defenses usually do not provide "attack code" or "adversarial images" in their source code. 
 
-2. Strictly speaking, it is unfair to directly compare the performance of empirical defenses and certified defenses due to their different robustness notions. Some empirical defenses might have (seemingly) high *empirical robustness*. However, those empirical defenses have <u>zero</u> *certified robust accuracy*, and their empirical robust accuracy might drop greatly given a stronger attacker.
+2. Strictly speaking, it is unfair to directly compare the performance of empirical defenses and certified defenses due to their different robustness notions. 
+   
+   1. Some empirical defenses might have (seemingly) high *empirical robustness*. However, those empirical defenses have <u>zero</u> *certified robust accuracy*, and their empirical robust accuracy might drop greatly given a smarter attacker. 
+   
+   2. On the other hand, the evaluated certified robustness is a *provable lower bound* on model performance against any empirical adaptive attack within the threat model.
 
 ### Robust Prediction vs Attack Detection
 
@@ -230,9 +233,32 @@ CVPR 2022
 
 1. not exactly an attack. use patch for good purposes...
 
+#### [Adversarial Robustness is Not Enough: Practical Limitations for Securing Facial Authentication](https://dl.acm.org/doi/abs/10.1145/3510548.3519369)
+
+IWSPA 2022
+
+1. empirically analyze the robustness of face authetication against physical-world attacks
+
 #### [Surreptitious Adversarial Examples through Functioning QR Code](https://www.mdpi.com/2313-433X/8/5/122/htm)
 
+1. combining QR code with adversarial patch
+
+#### [Adversarial Sticker: A Stealthy Attack Method in the Physical World](https://ieeexplore.ieee.org/abstract/document/9779913)
+
+TPAMI
+
+#### [Adversarial Patch Attacks and Defences in Vision-based Task: A Survey](https://arxiv.org/pdf/2206.08304.pdf)
+
+arXiv 2206
+
+1. a survey; no experimental evaluation
+2. (TODO: check if this paper list misses any paper listed in this survey)
+
+#### 
+
 [(go back to table of contents)](#table-of-contents)
+
+
 
 ### Certified Defenses
 
@@ -344,9 +370,13 @@ arXiv 2111
 3. *The evaluation of clean accuracy seems problematic... (feel free to correct me if I am wrong)*
    1. *For a clean image, the authors consider the model prediction to be correct even when the defense believes there is an attack*
 
+http://scis.scichina.com/en/2022/170306.pdf
+
 #### *<u>Check out this [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified robustness against adversarial patches!</u>*
 
 [(go back to table of contents)](#table-of-contents)
+
+
 
 ### Empirical Defenses
 
@@ -468,9 +498,9 @@ arXiv 2203
 2. *Clarification from the authors:* the main purpose of the ImageNet-Patch dataset is to provide a fast benchmark of models against patch attacks, but not strictly related to *defenses* against adversarial patches, which is why they did not cite any adversarial patch defense papers.
 3. (I ran some experiments; the transferability to architectures like ViT and ResMLP seemed low)
 
-#### [Adversarial Robustness is Not Enough: Practical Limitations for Securing Facial Authentication](https://dl.acm.org/doi/abs/10.1145/3510548.3519369)
-
 [(go back to table of contents)](#table-of-contents)
+
+
 
 ## Object Detection (and Semantic Segmentation)
 
@@ -584,6 +614,27 @@ CVPR 2022
 
 1. consider cameras from different angles
 
+#### [On the Feasibility and Generality of Patch-based Adversarial Attacks on Semantic Segmentation Problems](https://arxiv.org/abs/2205.10539)
+
+arXiv 2205
+
+#### [Physical Adversarial Attack on a Robotic Arm](https://cposkitt.github.io/files/publications/physical_adversarial_attack_ral22.pdf)
+
+RA-L 2022
+
+1. use adversarial patches to attack object detectors, in a robotic arm setting
+
+#### [Feasibility of Inconspicuous GAN-generated Adversarial Patches against Object Detection](https://arxiv.org/abs/2207.07347)
+
+arXiv 2207
+
+#### [Physical Passive Patch Adversarial Attacks on Visual Odometry Systems](https://arxiv.org/abs/2207.05729)
+
+arXiv 2207
+
+1. use adversarial patches to attack ML-based Visual Odometry
+
+
 [(go back to table of contents)](#table-of-contents)
 
 ### Certified Defenses
@@ -640,12 +691,20 @@ MM 2021
 
 #### [Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection](https://arxiv.org/abs/2112.04532)
 
-arXiv 2112
+CVPR 2022
 
 #### [Defending From Physically-Realizable Adversarial Attacks Through Internal Over-Activation Analysis](https://arxiv.org/abs/2203.07341)
 
 arXiv 2203
 
 #### [Defending Against Person Hiding Adversarial Patch Attack with a Universal White Frame](https://arxiv.org/abs/2204.13004)
+
+#### [PatchZero: Defending against Adversarial Patch Attacks by Detecting and Zeroing the Patch](https://arxiv.org/abs/2207.01795)
+
+arxiv 2207
+
+1. detect adversarial patches and remove them based on their different textures. consider different tasks like image classification, object detection, and video analysis
+
+
 
 [(go back to table of contents)](#table-of-contents)
