@@ -90,7 +90,7 @@ To evaluate a <u>certified defense</u>, we need to develop a <u>robustness certi
 
 There are also two different defense objectives (robustness notions).
 
-<u>Robust prediction</u> aims to always make correct decisions (e.g., correct classification label, correct bounding box detection), even in the presence of an attacker.
+<u>Robust prediction</u> aims to always make correct decisions (e.g., correct classification label, correct bounding box detection), even in the presence of an attacker. It is also often called *recovery-based defense*.
 
 <u>Attack detection</u>, on the other hand, only aims to detect an attack. If the defense detects an attack, it issues an alert and abstains from making predictions; if no attack is detected, it performs normal predictions. We can think of this type of defense as adding a special token "ALERT" to the model output space. 
 
@@ -98,8 +98,8 @@ There are also two different defense objectives (robustness notions).
 
 1. Apparently, the robust prediction defense is harder than the attack detection defense. The detect-and-alert setup might be problematic when human fallback is unavailable.
 2. Nevertheless, we are still interested in studying attack detection defense. There is [an interesting paper](https://arxiv.org/abs/2107.11630) discussing the connection between these two types of defense.
-3. How do we evaluate the robustness of attack detection defense:
-   1. for clean images: perform the defense, and only consider a correct prediction when the output matches the ground-truth
+3. **How do we evaluate the robustness of attack detection defense:**
+   1. for clean images: perform the defense, and only consider a correct prediction when the output matches the ground-truth (alerts in the clean setting are errors!!)
    2. for adversarial images: perform the defense, count a robust prediction if the prediction output is ALERT or matches the ground-truth
 
 ## Image Classification
@@ -151,7 +151,7 @@ arXiv 2004; ECCV 2020
 
 #### [Robust Physical-World Attacks on Face Recognition](https://arxiv.org/pdf/2011.13526.pdf)
 
-arXiv 2011
+arXiv 2011; Pattern Recognition
 
 #### [A Data Independent Approach to Generate Adversarial Patches](https://link.springer.com/article/10.1007/s00138-021-01194-6)
 
@@ -161,7 +161,7 @@ Sprinter 2021
 
 #### [Enhancing Real-World Adversarial Patches with 3D Modeling Techniques](https://arxiv.org/abs/2102.05334)
 
-arXiv 2102
+arXiv 2102; Neurocomputing
 
 1. use 3D modeling to enhance physical-world patch attack
 
@@ -179,13 +179,13 @@ arXiv 2106; CVPR 2021
 
 #### [Inconspicuous Adversarial Patches for Fooling Image Recognition Systems on Mobile Devices](https://arxiv.org/abs/2106.15202)
 
-arXiv 2106; an old version is available at [arXiv 2009](https://arxiv.org/abs/2009.09774) 
+arXiv 2106; an old version is available at [arXiv 2009](https://arxiv.org/abs/2009.09774); IEEE Internet of Things Journal
 
 1. generate *small (inconspicuous)* and localized perturbations
 
 #### [Patch Attack Invariance: How Sensitive are Patch Attacks to 3D Pose?](https://arxiv.org/abs/2108.07229)
 
-arXiv 2108
+arXiv 2108; ICCVW 2021
 
 1. consider physical-world patch attack in the 3-D space (images are taken from different angles)
 
@@ -197,7 +197,7 @@ IEEE Access
 
 #### [Adversarial Token Attacks on Vision Transformers](https://arxiv.org/abs/2110.04337)
 
-arXiv 2110
+arXiv 2110; CVPR Workshop 2022
 
 1. An analysis of perturbing part of tokens of ViT
 
@@ -211,13 +211,13 @@ BMVC 2021
 
 #### [Adversarial Mask: Real-World Adversarial Attack Against Face Recognition Models](https://arxiv.org/abs/2111.10759)
 
-arXiv 2111
+arXiv 2111; ECML/PKDD 2022
 
 1. physical world attack via wearing a weird mask
 
 #### [TnT Attacks! Universal Naturalistic Adversarial Patches Against Deep Neural Network Systems](https://arxiv.org/abs/2111.09999)
 
-arXiv 2111
+arXiv 2111; TIFS
 
 1. natural-looking patch attacks
 
@@ -241,6 +241,8 @@ IWSPA 2022
 
 #### [Surreptitious Adversarial Examples through Functioning QR Code](https://www.mdpi.com/2313-433X/8/5/122/htm)
 
+Journal of Imaging
+
 1. combining QR code with adversarial patch
 
 #### [Adversarial Sticker: A Stealthy Attack Method in the Physical World](https://ieeexplore.ieee.org/abstract/document/9779913)
@@ -255,6 +257,12 @@ arXiv 2206
 2. (TODO: check if this paper list misses any paper listed in this survey)
 
 #### 
+
+#### [SpecPatch: Human-in-the-Loop Adversarial Audio Spectrogram Patch Attack on Speech Recognition](https://cse.msu.edu/~qyan/paper/SpecPatch_CCS22.pdf)
+
+CCS 2022
+
+1. Not actuall a patch attack; the paper is about audio
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -329,7 +337,7 @@ Available on ICLR open review in 10/2020
 arXiv 2104; ICLR workshop 2021
 
 1. **Certified defense** for *detecting an attack*
-2. A hybrid of PatchGuard and Minority Report
+2. A hybrid of PatchGuard and Minority Reports
 
 #### [ScaleCert: Scalable Certified Defense against Adversarial Patches with Sparse Superficial Layers](https://arxiv.org/abs/2110.14120)
 
@@ -366,9 +374,20 @@ CVPR 2022
 arXiv 2111
 
 1. **certified defense** for *attack detection*.
-2. The idea is basically [Minority Report](https://arxiv.org/abs/2004.13799) with Vision Transformer
+2. The idea is basically [Minority Reports](https://arxiv.org/abs/2004.13799) with Vision Transformer
 3. *The evaluation of clean accuracy seems problematic... (feel free to correct me if I am wrong)*
-   1. *For a clean image, the authors consider the model prediction to be correct even when the defense believes there is an attack*
+   1. *For a clean image, the authors consider the model prediction to be correct even when the defense issues an attack alert*
+   
+#### [ViP: Unified Certified Detection and Recovery for Patch Attack with Vision Transformers](https://cihangxie.github.io/data/li2022vip.pdf)
+
+ECCV 2022
+
+1. **certified defense** for both *robust prediction* and *attack detection*.
+2. The robust-prediction (recovery-based) defense is similar to smoothed ViT (but with more different "masking" strategies); the detection-based defense is similar to Minority Reports.
+3. They proposed a generalized window mask to handle the two-patch problem.
+4. The clean performance evaluation of the detection-based defense does not count false alerts as errors (the authors say they are working on a revision to clarify fix issue; I will add this defense to the leadboard soon)
+
+
 
 http://scis.scichina.com/en/2022/170306.pdf
 
@@ -444,7 +463,7 @@ CISS 2021
 
 #### [Detecting Localized Adversarial Examples: A Generic Approach using Critical Region Analysis](https://arxiv.org/pdf/2102.05241.pdf)
 
-arXiv 2102
+arXiv 2102; INFOCOM 2021
 
 1. empirical defense for attack detection
 
@@ -492,7 +511,7 @@ MM workshop 2021
 
 #### [ImageNet-Patch: A Dataset for Benchmarking Machine Learning Robustness against Adversarial Patches](https://arxiv.org/abs/2203.04412)
 
-arXiv 2203
+arXiv 2203; ICML workshop 2022
 
 1. A dataset for adversarial patches
 2. *Clarification from the authors:* the main purpose of the ImageNet-Patch dataset is to provide a fast benchmark of models against patch attacks, but not strictly related to *defenses* against adversarial patches, which is why they did not cite any adversarial patch defense papers.
@@ -526,7 +545,7 @@ arXiv 1906
 
 #### [Universal Physical Camouflage Attacks on Object Detectors](https://arxiv.org/pdf/1909.04326.pdf)
 
-arXiv 1909
+arXiv 1909; CVPR 2020
 
 #### [Seeing isn't Believing: Towards More Robust Adversarial Attack Against Real World Object Detectors](https://dl.acm.org/doi/10.1145/3319535.3354259)
 
@@ -584,7 +603,7 @@ arXiv 2105
 
 #### [Evaluating the Robustness of Semantic Segmentation for Autonomous Driving against Real-World Adversarial Patch Attacks](https://arxiv.org/abs/2108.06179)
 
-arXiv 2108
+arXiv 2108; WACV 2022
 
 #### [Physical Adversarial Attacks on an Aerial Imagery Object Detector](https://arxiv.org/abs/2108.11765)
 
@@ -616,7 +635,7 @@ CVPR 2022
 
 #### [On the Feasibility and Generality of Patch-based Adversarial Attacks on Semantic Segmentation Problems](https://arxiv.org/abs/2205.10539)
 
-arXiv 2205
+arXiv 2205; ICPRAI 2022
 
 #### [Physical Adversarial Attack on a Robotic Arm](https://cposkitt.github.io/files/publications/physical_adversarial_attack_ral22.pdf)
 
@@ -626,7 +645,7 @@ RA-L 2022
 
 #### [Feasibility of Inconspicuous GAN-generated Adversarial Patches against Object Detection](https://arxiv.org/abs/2207.07347)
 
-arXiv 2207
+arXiv 2207; IJCAI Workshop 2022
 
 #### [Physical Passive Patch Adversarial Attacks on Visual Odometry Systems](https://arxiv.org/abs/2207.05729)
 
@@ -634,6 +653,13 @@ arXiv 2207
 
 1. use adversarial patches to attack ML-based Visual Odometry
 
+#### [Adversarial Vulnerability of Temporal Feature Networks for Object Detection](https://arxiv.org/abs/2208.10773)
+
+arXiv 2208
+
+#### [Benchmarking and deeper analysis of adversarial patch attack on object detectors](http://ceur-ws.org/Vol-3215/23.pdf)
+
+IJCAI Workshop 2022
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -654,6 +680,16 @@ arXiv 2202
 1. use pixel masks to remove the adversarial patch in a certifiably robust manner.
 2. a significant improvement in certified robustness
 3. also discuss different robustness notions
+
+
+#### [Certified Defences Against Adversarial Patch Attacks on Semantic Segmentation](https://arxiv.org/abs/2209.05980)
+
+arXiv 2209
+
+1. The **first certified defense** for image segmentation
+2. Use different masking strategies for attack detection or robust prediction
+3. Perform inpainting after masking to improve performance
+4. Unfortunately, this paper does not count false alerts of detection-based defense as errors in the clean setting
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -705,6 +741,12 @@ arxiv 2207
 
 1. detect adversarial patches and remove them based on their different textures. consider different tasks like image classification, object detection, and video analysis
 
+#### [Real-Time Robust Video Object Detection System Against Physical-World Adversarial Attacks](https://arxiv.org/abs/2208.09195)
+
+arXiv 2208
 
 
 [(go back to table of contents)](#table-of-contents)
+
+
+
