@@ -264,6 +264,31 @@ CCS 2022
 
 1. Not actuall a patch attack; the paper is about audio
 
+#### [Visually imperceptible adversarial patch attacks](https://www.sciencedirect.com/science/article/pii/S0167404822003352)
+
+
+#### [A Survey on Physical Adversarial Attack in Computer Vision](https://arxiv.org/abs/2209.14262)
+
+arXiv 2209
+
+#### [Give Me Your Attention: Dot-Product Attention Considered Harmful for Adversarial Patch Robustness](https://arxiv.org/abs/2203.13639)
+
+CVPR 2022
+
+1. an interesting paper that proposes a loss targeted at attention modules
+2. studied both transformer-based image classification and object detection
+
+#### [Evaluating Model Robustness to Patch Perturbations](https://openreview.net/forum?id=vQGNqbX62_o)
+
+ICML 2022 Workshop
+
+#### [Shape Matters: Deformable Patch Attack](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136640522.pdf)
+
+ECCV 2022
+
+1. optimize the patch shape as well
+
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -272,7 +297,7 @@ CCS 2022
 
 #### *<u>Check out this [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified robustness against adversarial patches!</u>*
 
-The leaderboard provides a summary of all papers in this section!
+The leaderboard provides a summary of all papers in this section! (todo: add ViP)
 
 #### [Certified Defenses for Adversarial Patches](https://arxiv.org/abs/2003.06693)
 
@@ -385,12 +410,12 @@ ECCV 2022
 1. **certified defense** for both *robust prediction* and *attack detection*.
 2. The robust-prediction (recovery-based) defense is similar to smoothed ViT (but with more different "masking" strategies); the detection-based defense is similar to Minority Reports.
 3. They proposed a generalized window mask to handle the two-patch problem.
-4. The clean performance evaluation of the detection-based defense does not count false alerts as errors (the authors say they are working on a revision to clarify fix issue; I will add this defense to the leadboard soon)
+4. The clean performance evaluation of the detection-based defense does not count false alerts as errors (the authors say they are working on a revision to fix this issue; I will add this defense to the leadboard soon)
 
 
 
 http://scis.scichina.com/en/2022/170306.pdf
-
+https://ieeexplore.ieee.org/abstract/document/9897387
 #### *<u>Check out this [leaderboard](https://github.com/inspire-group/patch-defense-leaderboard) for certified robustness against adversarial patches!</u>*
 
 [(go back to table of contents)](#table-of-contents)
@@ -563,11 +588,19 @@ arXiv 1910; ECCV 2020
 
 1. wear an ugly T-shirt to evade person detection
 
+#### [Indirect Local Attacks for Context-aware Semantic Segmentation Networks](https://arxiv.org/abs/1911.13038)
+
+
 #### [APRICOT: A Dataset of Physical Adversarial Attacks on Object Detection](https://arxiv.org/abs/1912.08166)
 
 arXiv 1912; ECCV 2020
 
 1. a dataset with annotated patch locations.
+
+#### [AP-GAN: Adversarial patch attack on content-based image retrieval systems](https://link.springer.com/article/10.1007/s10707-020-00418-7)
+
+1. patch attacks against the task of image retrieval
+
 
 #### [Adaptive Square Attack: Fooling Autonomous Cars With Adversarial Traffic Signs](https://ieeexplore.ieee.org/document/9165820)
 
@@ -621,6 +654,10 @@ ICCV 2021
 
 1. an improved attack from adversarial T-shirt. The patch looks more natural (e.g., a dog)
 
+#### [AdvHash: Set-to-set Targeted Attack on Deep Hashing with One Single Adversarial Patch](https://dl.acm.org/doi/abs/10.1145/3474085.3475396)
+
+MM 2021
+
 #### [Legitimate Adversarial Patches: Evading Human Eyes and Detection Models in the Physical World](https://dl.acm.org/doi/abs/10.1145/3474085.3475653)
 
 MM 2021
@@ -660,6 +697,17 @@ arXiv 2208
 #### [Benchmarking and deeper analysis of adversarial patch attack on object detectors](http://ceur-ws.org/Vol-3215/23.pdf)
 
 IJCAI Workshop 2022
+
+
+#### [Universal Physical Adversarial Attack via Background Image](https://link.springer.com/chapter/10.1007/978-3-031-16815-4_1)
+
+
+#### [Suppress with a Patch: Revisiting Universal Adversarial Patch Attacks against Object Detection](https://arxiv.org/abs/2209.13353)
+
+ICECCME 2022
+
+##### [Multiview Robust Adversarial Stickers for Arbitrary Objects in the Physical World](https://ojs.bonviewpress.com/index.php/JCCE/article/view/322)
+
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -745,8 +793,13 @@ arxiv 2207
 
 arXiv 2208
 
+#### [Defending Physical Adversarial Attack on Object Detection via Adversarial Patch-Feature Energy](https://dl.acm.org/doi/abs/10.1145/3503161.3548362)
+
+MM 2022
+
 
 [(go back to table of contents)](#table-of-contents)
+
 
 
 
