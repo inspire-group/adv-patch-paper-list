@@ -288,6 +288,15 @@ ECCV 2022
 
 1. optimize the patch shape as well
 
+#### [Carpet-bombing patch: attacking a deep network without usual requirements](https://arxiv.org/abs/2212.05827)
+
+arXiv 2212
+
+1. attacking the feature space. applicable to image classification, object detection, semantic segmentation
+
+#### [Simultaneously Optimizing Perturbations and Positions for Black-box Adversarial Patch Attacks](https://arxiv.org/abs/2212.12995)
+
+TPAMI 2022
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -626,6 +635,14 @@ arXiv 2010
 
 arXiv 2010
 
+
+#### [Exploring Adversarial Robustness of Multi-sensor Perception Systems in Self Driving](https://arxiv.org/abs/2101.06784)
+
+CoRL
+
+1. attacking 3D and 2D perception at the same time 
+
+
 #### [RPATTACK: Refined Patch Attack on General Object Detectors](https://arxiv.org/abs/2103.12469)
 
 arXiv 2103; ICME 2021
@@ -684,12 +701,6 @@ RA-L 2022
 
 arXiv 2207; IJCAI Workshop 2022
 
-#### [Physical Passive Patch Adversarial Attacks on Visual Odometry Systems](https://arxiv.org/abs/2207.05729)
-
-arXiv 2207
-
-1. use adversarial patches to attack ML-based Visual Odometry
-
 #### [Adversarial Vulnerability of Temporal Feature Networks for Object Detection](https://arxiv.org/abs/2208.10773)
 
 arXiv 2208
@@ -706,10 +717,44 @@ IJCAI Workshop 2022
 
 ICECCME 2022
 
-##### [Multiview Robust Adversarial Stickers for Arbitrary Objects in the Physical World](https://ojs.bonviewpress.com/index.php/JCCE/article/view/322)
+#### [Multiview Robust Adversarial Stickers for Arbitrary Objects in the Physical World](https://ojs.bonviewpress.com/index.php/JCCE/article/view/322)
 
+
+#### [Adversarial Patch Attack on Multi-Scale Object Detection for UAV Remote Sensing Images](https://www.mdpi.com/2072-4292/14/21/5298)
+
+
+#### [Poster: On the System-Level Effectiveness of Physical Object-Hiding Adversarial Attack in Autonomous Driving]
+
+CCS 2022 Poster
+
+1. demonstrate that existing physical patch attack might not be that effective when consider other components of autonomous car (e.g., object tracking)
+
+
+#### [Benchmarking Adversarial Patch Against Aerial Detection](https://arxiv.org/abs/2210.16765
+)
+
+arXiv 2210
+
+
+#### [TPatch: A Triggered Physical Adversarial Patch](https://www.usenix.org/conference/usenixsecurity23/presentation/zhu)
+
+USENIX Security 2023
+
+1. physical adversarial patch triggered by acoustic signals
+
+#### [Attacking Object Detector Using A Universal Targeted Label-Switch Patch](https://arxiv.org/abs/2211.08859)
+
+arXiv 2211
+
+
+#### [HOTCOLD Block: Fooling Thermal Infrared Detectors with a Novel Wearable Design](https://arxiv.org/abs/2212.05709)
+
+AAAI 2023
 
 [(go back to table of contents)](#table-of-contents)
+
+
+
 
 ### Certified Defenses
 
@@ -783,6 +828,10 @@ arXiv 2203
 
 #### [Defending Against Person Hiding Adversarial Patch Attack with a Universal White Frame](https://arxiv.org/abs/2204.13004)
 
+TIP
+
+1. use a GAN-like training strategy to train a "white frame". The frame is attached to the image to invalidate patch attacks.
+
 #### [PatchZero: Defending against Adversarial Patch Attacks by Detecting and Zeroing the Patch](https://arxiv.org/abs/2207.01795)
 
 arxiv 2207
@@ -797,9 +846,45 @@ arXiv 2208
 
 MM 2022
 
+#### [APMD: Adversarial Pixel Masking Derivative for multispectral object detectors](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12275/122750F/APMD-Adversarial-Pixel-Masking-Derivative-for-multispectral-object-detectors/10.1117/12.2637977.full?SSO=1)
+
+#### [Research on Adversarial Patch Attack Defense Method for Traffic Sign Detection](https://link.springer.com/chapter/10.1007/978-981-19-8285-9_15)
+
+
 
 [(go back to table of contents)](#table-of-contents)
 
 
 
+## Other tasks
+### Attacks
+
+#### [Dirty Road Can Attack: Security of Deep Learning based Automated Lane Centering under Physical-World Attack](https://www.usenix.org/conference/usenixsecurity21/presentation/sato)
+
+USENIX 2021
+
+1. use a patch on the road to attack lane detection.
+
+
+#### [Physical Passive Patch Adversarial Attacks on Visual Odometry Systems](https://arxiv.org/abs/2207.05729)
+
+arXiv 2207; ECCV 2022 workshop
+
+1. use adversarial patches to attack ML-based Visual Odometry
+
+#### [Attacking a Defended Optical Flow Network](https://elib.uni-stuttgart.de/bitstream/11682/12574/1/master_thesis_alexander_lis.pdf)
+
+#### [GUAP: Graph Universal Attack Through Adversarial Patching](https://arxiv.org/abs/2212.05709)
+
+arXiv 2301
+
+1. add a patch(set) of nodes to graph to attack GNN
+
+
+### Defenses
+#### [CRAB: Certified Patch Robustness Against Poisoning-Based Backdoor Attacks](https://ieeexplore.ieee.org/abstract/document/9897387)
+
+ICIP 2022
+
+1. apply certifiably robust defenses for test-time attack to backdoored models
 
