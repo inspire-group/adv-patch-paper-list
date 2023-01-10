@@ -66,6 +66,13 @@ I am actively developing this paper list (I haven't added notes for all papers).
   
   - [Empirical Defenses](#empirical-defenses-1)
 
+
+- [**Other Tasks**](#other-tasks)
+  
+  - [Attacks](#attacks-2)
+  
+  - [Defenses](#defenses)
+
 ## Defense Terminology
 
 ### **Empirically Robust Defenses vs Provably/certifiably Robust Defenses**
@@ -730,8 +737,7 @@ CCS 2022 Poster
 1. demonstrate that existing physical patch attack might not be that effective when consider other components of autonomous car (e.g., object tracking)
 
 
-#### [Benchmarking Adversarial Patch Against Aerial Detection](https://arxiv.org/abs/2210.16765
-)
+#### [Benchmarking Adversarial Patch Against Aerial Detection](https://arxiv.org/abs/2210.16765)
 
 arXiv 2210
 
