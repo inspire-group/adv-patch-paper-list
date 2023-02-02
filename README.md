@@ -58,7 +58,7 @@ I am actively developing this paper list (I haven't added notes for all papers).
   - [Certified Robustness Leaderboard](https://docs.google.com/spreadsheets/d/1zDBg5AmpWq92c_MaSx6vq4FsOUnzu57i8aUuex2NT7Y/edit?usp=sharing)
   - [Empirical Defenses](#empirical-defenses)
 
-- [**Object Detection (and Semantic Segmentation)**](#object-detection-and-semantic-segmentation)
+- [**Object Detection**](#object-detection)
   
   - [Attacks](#attacks-1)
   
@@ -66,12 +66,17 @@ I am actively developing this paper list (I haven't added notes for all papers).
   
   - [Empirical Defenses](#empirical-defenses-1)
 
+- [**Semantic Segmentation**](#semantic-segmentation)
 
-- [**Other Tasks**](#other-tasks)
-  
   - [Attacks](#attacks-2)
   
   - [Defenses](#defenses)
+  
+- [**Other Tasks**](#other-tasks)
+  
+  - [Attacks](#attacks-3)
+  
+  - [Defenses](#defenses-1)
 
 ## Defense Terminology
 
@@ -156,6 +161,12 @@ arXiv 2004; ECCV 2020
 
 1. a *black-box* attack via reinforcement learning
 
+#### [Jacks of All Trades, Masters Of None: Addressing Distributional Shift and Obtrusiveness via Transparent Patch Attacks]
+
+arXiv 2005
+
+1. transparent patch
+
 #### [Robust Physical-World Attacks on Face Recognition](https://arxiv.org/pdf/2011.13526.pdf)
 
 arXiv 2011; Pattern Recognition
@@ -216,6 +227,8 @@ arXiv 2110
 
 BMVC 2021
 
+1. learn patch content and location (instead of a fixed/random patch location)
+
 #### [Adversarial Mask: Real-World Adversarial Attack Against Face Recognition Models](https://arxiv.org/abs/2111.10759)
 
 arXiv 2111; ECML/PKDD 2022
@@ -261,15 +274,8 @@ TPAMI
 arXiv 2206
 
 1. a survey; no experimental evaluation
-2. (TODO: check if this paper list misses any paper listed in this survey)
+2. Most (if not all) papers are covered in this paper. 
 
-#### 
-
-#### [SpecPatch: Human-in-the-Loop Adversarial Audio Spectrogram Patch Attack on Speech Recognition](https://cse.msu.edu/~qyan/paper/SpecPatch_CCS22.pdf)
-
-CCS 2022
-
-1. Not actuall a patch attack; the paper is about audio
 
 #### [Visually imperceptible adversarial patch attacks](https://www.sciencedirect.com/science/article/pii/S0167404822003352)
 
@@ -289,6 +295,8 @@ CVPR 2022
 
 ICML 2022 Workshop
 
+1. show that ViT is more robust to natural patch corruption, but more vulnerable to adversarial patch perturbations.
+
 #### [Shape Matters: Deformable Patch Attack](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136640522.pdf)
 
 ECCV 2022
@@ -300,10 +308,17 @@ ECCV 2022
 arXiv 2212
 
 1. attacking the feature space. applicable to image classification, object detection, semantic segmentation
+2. discuss the different behaviors of patch attacks and global perturbation attacks
 
 #### [Simultaneously Optimizing Perturbations and Positions for Black-box Adversarial Patch Attacks](https://arxiv.org/abs/2212.12995)
 
 TPAMI 2022
+
+1. surrogate model + reinforcement learning. the patch position is from RL model.
+
+
+#### [Adversarial Patch Attacks on Deep-Learning-Based Face Recognition Systems Using Generative Adversarial Networks](https://scholar.google.com/scholar_url?url=https://www.mdpi.com/1424-8220/23/2/853/pdf&hl=en&sa=X&d=48559259810472902&ei=TFTGY93fE-eR6rQPlcq46AU&scisig=AAGBfm1hT9-F56fSSSRMBmArOQr2o5HoPA&oi=scholaralrt&hist=aLXNz30AAAAJ:9852417106042154872:AAGBfm01Ux2UGyMoVgNEkpSE_Z5DZDMAhw&html=&pos=5&folt=rel)
+
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -459,6 +474,12 @@ Journal of Big Data
 1. An **empirical defense**, make prediction on pixel patches, and do majority voting
 2. This paper is somehow missed by almost all relevant papers in this field (probably due to its venue); it only has one self-citation. However, its idea is quite similar to some certified defenses that are published in 2019-2020
 
+#### [Robust Synthesis of Adversarial Visual Examples Using a Deep Image Prior](https://arxiv.org/abs/1907.01996)
+
+arXiv 1907 BMVC 2019
+
+1. briefly discuss localized patch attacks
+
 #### [Defending Against Physically Realizable Attacks on Image Classification](https://arxiv.org/abs/1909.09552)
 
 arXiv 1909, ICLR 2020
@@ -484,10 +505,13 @@ arXiv 2002
 arXiv 2005, ECCV workshop 2020
 
 1. **empirical defense** via adversarial training (in which the patch location is being optimized)
+2. move the patch toward the direction where loss increases
 
 #### [Vax-a-Net: Training-time Defence Against Adversarial Patch Attacks](https://arxiv.org/abs/2009.08194)
 
 arXiv 2009; ACCV 2020
+
+1. use conditional GAN to generate patch for adversarial training
 
 #### [Robustness Out of the Box: Compositional Representations Naturally Defend Against Black-Box Patch Attacks](https://arxiv.org/abs/2012.00558)
 
@@ -527,11 +551,13 @@ ICML UDL workshop
 
 1. **empirical defense**. detect and remove outliers in ViT
 
-#### [Turning Your Strength against You: Detecting and Mitigating Robust and Universal Adversarial Patch Attack](https://arxiv.org/abs/2108.05075)
+#### [Jujutsu: A Two-stage Defense against Adversarial Patch Attacks on Deep Neural Networks](https://arxiv.org/abs/2108.05075)
+old title:[Turning Your Strength against You: Detecting and Mitigating Robust and Universal Adversarial Patch Attack](https://arxiv.org/abs/2108.05075)
 
-arXiv 2108
+arXiv 2108; AsiaCCS 2023
 
 1. empirical defense; use universality 
+2. similar to SentiNet without some improvements: detect critical region and overlay it to a different image
 
 #### [Defending Against Universal Adversarial Patches by Clipping Feature Norms](https://openaccess.thecvf.com/content/ICCV2021/papers/Yu_Defending_Against_Universal_Adversarial_Patches_by_Clipping_Feature_Norms_ICCV_2021_paper.pdf)
 
@@ -548,7 +574,8 @@ ICCV workshop 2021
 
 MM workshop 2021
 
-1. **empirical defense**
+1. make predictions on small image region. train a classifier on predictions on different regions.
+2. discuss "provable robustness"
 
 #### [ImageNet-Patch: A Dataset for Benchmarking Machine Learning Robustness against Adversarial Patches](https://arxiv.org/abs/2203.04412)
 
@@ -562,7 +589,7 @@ arXiv 2203; ICML workshop 2022
 
 
 
-## Object Detection (and Semantic Segmentation)
+## Object Detection
 
 ### Attacks
 
@@ -604,18 +631,11 @@ arXiv 1910; ECCV 2020
 
 1. wear an ugly T-shirt to evade person detection
 
-#### [Indirect Local Attacks for Context-aware Semantic Segmentation Networks](https://arxiv.org/abs/1911.13038)
-
-
 #### [APRICOT: A Dataset of Physical Adversarial Attacks on Object Detection](https://arxiv.org/abs/1912.08166)
 
 arXiv 1912; ECCV 2020
 
 1. a dataset with annotated patch locations.
-
-#### [AP-GAN: Adversarial patch attack on content-based image retrieval systems](https://link.springer.com/article/10.1007/s10707-020-00418-7)
-
-1. patch attacks against the task of image retrieval
 
 
 #### [Adaptive Square Attack: Fooling Autonomous Cars With Adversarial Traffic Signs](https://ieeexplore.ieee.org/document/9165820)
@@ -634,14 +654,21 @@ arXiv 2010; IJCNN 2020
 
 arXiv 2010; CIKM workshop
 
+1. not really a conventional patch attacks. more like a structured L0 attacks
+2. briefly discuss that two-stage detector like Faster-RCNN is harder to attack compared with one-stage detector like YOLO
+
 #### [Object Hider: Adversarial Patch Attack Against Object Detectors](https://arxiv.org/abs/2010.14974)
 
 arXiv 2010
+
+1. add multiple small patches
+2. use heatmap to find sensitive location to place the patches
 
 #### [Dynamic Adversarial Patch for Evading Object Detection Models](https://arxiv.org/abs/2010.13070)
 
 arXiv 2010
 
+1. dynamic -- the patch location/position changes as the camera moves around
 
 #### [Exploring Adversarial Robustness of Multi-sensor Perception Systems in Self Driving](https://arxiv.org/abs/2101.06784)
 
@@ -649,18 +676,20 @@ CoRL
 
 1. attacking 3D and 2D perception at the same time 
 
+#### [The Translucent Patch: A Physical and Universal Attack on Object Detectors](https://arxiv.org/abs/2012.12528)
+
+arXiv 2012; CVPR 2021
+
+1. not really a patch attack. put a translucent patch in front of the camera
 
 #### [RPATTACK: Refined Patch Attack on General Object Detectors](https://arxiv.org/abs/2103.12469)
 
 arXiv 2103; ICME 2021
 
-#### [IPatch: A Remote Adversarial Patch](https://arxiv.org/pdf/2105.00113.pdf)
+1. achieve high attack performance using a small number of pixels (e.g, 0.32% pixels)
+2. the adversarial pixels are scatter across the entire image and different objects, more like a L0 attack
 
-arXiv 2105
 
-#### [Evaluating the Robustness of Semantic Segmentation for Autonomous Driving against Real-World Adversarial Patch Attacks](https://arxiv.org/abs/2108.06179)
-
-arXiv 2108; WACV 2022
 
 #### [Physical Adversarial Attacks on an Aerial Imagery Object Detector](https://arxiv.org/abs/2108.11765)
 
@@ -678,9 +707,6 @@ ICCV 2021
 
 1. an improved attack from adversarial T-shirt. The patch looks more natural (e.g., a dog)
 
-#### [AdvHash: Set-to-set Targeted Attack on Deep Hashing with One Single Adversarial Patch](https://dl.acm.org/doi/abs/10.1145/3474085.3475396)
-
-MM 2021
 
 #### [Legitimate Adversarial Patches: Evading Human Eyes and Detection Models in the Physical World](https://dl.acm.org/doi/abs/10.1145/3474085.3475653)
 
@@ -688,15 +714,16 @@ MM 2021
 
 1. an improved attack from adversarial T-shirt. The patch looks more natural (e.g., an Ivysaur!)
 
+
+#### [Developing Imperceptible Adversarial Patches to Camouflage Military Assets From Computer Vision Enabled Technologies](https://arxiv.org/abs/2202.08892)
+
+
 #### [Adversarial Texture for Fooling Person Detectors in the Physical World](https://arxiv.org/abs/2203.03373)
 
 CVPR 2022
 
 1. consider cameras from different angles
 
-#### [On the Feasibility and Generality of Patch-based Adversarial Attacks on Semantic Segmentation Problems](https://arxiv.org/abs/2205.10539)
-
-arXiv 2205; ICPRAI 2022
 
 #### [Physical Adversarial Attack on a Robotic Arm](https://cposkitt.github.io/files/publications/physical_adversarial_attack_ral22.pdf)
 
@@ -730,7 +757,7 @@ ICECCME 2022
 #### [Adversarial Patch Attack on Multi-Scale Object Detection for UAV Remote Sensing Images](https://www.mdpi.com/2072-4292/14/21/5298)
 
 
-#### [Poster: On the System-Level Effectiveness of Physical Object-Hiding Adversarial Attack in Autonomous Driving]
+#### [Poster: On the System-Level Effectiveness of Physical Object-Hiding Adversarial Attack in Autonomous Driving](https://dl.acm.org/doi/10.1145/3548606.3563539)
 
 CCS 2022 Poster
 
@@ -757,6 +784,12 @@ arXiv 2211
 
 AAAI 2023
 
+#### [Attention-Guided Digital Adversarial Patches on Visual Detection](https://www.hindawi.com/journals/scn/2021/6637936/)
+
+
+#### [Towards a physical-world adversarial patch for blinding object detection models](https://www.sciencedirect.com/science/article/abs/pii/S0020025520308586)
+
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -780,15 +813,6 @@ arXiv 2202
 2. a significant improvement in certified robustness
 3. also discuss different robustness notions
 
-
-#### [Certified Defences Against Adversarial Patch Attacks on Semantic Segmentation](https://arxiv.org/abs/2209.05980)
-
-arXiv 2209
-
-1. The **first certified defense** for image segmentation
-2. Use different masking strategies for attack detection or robust prediction
-3. Perform inpainting after masking to improve performance
-4. Unfortunately, this paper does not count false alerts of detection-based defense as errors in the clean setting
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -832,6 +856,8 @@ CVPR 2022
 
 arXiv 2203
 
+1. use z-score in each layer to detect patches.
+
 #### [Defending Against Person Hiding Adversarial Patch Attack with a Universal White Frame](https://arxiv.org/abs/2204.13004)
 
 TIP
@@ -854,22 +880,96 @@ MM 2022
 
 #### [APMD: Adversarial Pixel Masking Derivative for multispectral object detectors](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12275/122750F/APMD-Adversarial-Pixel-Masking-Derivative-for-multispectral-object-detectors/10.1117/12.2637977.full?SSO=1)
 
-#### [Research on Adversarial Patch Attack Defense Method for Traffic Sign Detection](https://link.springer.com/chapter/10.1007/978-981-19-8285-9_15)
+1. train a network to detect and mask the patch
 
+#### [Research on Adversarial Patch Attack Defense Method for Traffic Sign Detection](https://link.springer.com/chapter/10.1007/978-981-19-8285-9_15)
 
 
 [(go back to table of contents)](#table-of-contents)
 
 
+## Semantic Segmentation
+
+### Attacks
+
+
+#### [Indirect Local Attacks for Context-aware Semantic Segmentation Networks](https://arxiv.org/abs/1911.13038)
+
+ECCV 2020
+
+1. indirect -- the malicious pixels do not overlap with the victim pixels/objects
+2.  interestingly shows that more advanced models are more vulnerable to "indirect" patch attacks, since they leverage more "context" information.
+
+#### [IPatch: A Remote Adversarial Patch](https://arxiv.org/pdf/2105.00113.pdf)
+
+arXiv 2105
+
+1. remote -- the patch is away from the victim pixels
+
+
+#### [Evaluating the Robustness of Semantic Segmentation for Autonomous Driving against Real-World Adversarial Patch Attacks](https://arxiv.org/abs/2108.06179)
+
+arXiv 2108; WACV 2022
+
+#### [On the Feasibility and Generality of Patch-based Adversarial Attacks on Semantic Segmentation Problems](https://arxiv.org/abs/2205.10539)
+
+arXiv 2205; ICPRAI 2022
+
+
+#### [Carpet-bombing patch: attacking a deep network without usual requirements](https://arxiv.org/abs/2212.05827)
+
+arXiv 2212
+
+1. attacking the feature space. applicable to image classification, object detection, semantic segmentation
+2. discuss the different behaviors of patch attacks and global perturbation attacks
+
+
+
+### Defenses
+
+#### [Certified Defences Against Adversarial Patch Attacks on Semantic Segmentation](https://arxiv.org/abs/2209.05980)
+
+arXiv 2209
+
+1. The **first certified defense** for image segmentation
+2. Use different masking strategies for attack detection or robust prediction
+3. Perform inpainting after masking to improve performance
+4. Unfortunately, this paper does not count false alerts of detection-based defense as errors in the clean setting
+
+
+
 
 ## Other tasks
+
 ### Attacks
+
+
+#### [Adversarial Patch Attacks on Monocular Depth Estimation Networks](https://arxiv.org/abs/2010.03072)
+
+arXiv 2010
+
+1. attack depth estimation
+
+#### [AP-GAN: Adversarial patch attack on content-based image retrieval systems](https://link.springer.com/article/10.1007/s10707-020-00418-7)
+
+1. patch attacks against the task of image retrieval
+
+#### [AdvHash: Set-to-set Targeted Attack on Deep Hashing with One Single Adversarial Patch](https://dl.acm.org/doi/abs/10.1145/3474085.3475396)
+
+MM 2021
+
 
 #### [Dirty Road Can Attack: Security of Deep Learning based Automated Lane Centering under Physical-World Attack](https://www.usenix.org/conference/usenixsecurity21/presentation/sato)
 
 USENIX 2021
 
 1. use a patch on the road to attack lane detection.
+
+#### [SpecPatch: Human-in-the-Loop Adversarial Audio Spectrogram Patch Attack on Speech Recognition](https://cse.msu.edu/~qyan/paper/SpecPatch_CCS22.pdf)
+
+CCS 2022
+
+1. Not actuall a patch attack; the paper is about audio
 
 
 #### [Physical Passive Patch Adversarial Attacks on Visual Odometry Systems](https://arxiv.org/abs/2207.05729)
@@ -880,6 +980,7 @@ arXiv 2207; ECCV 2022 workshop
 
 #### [Attacking a Defended Optical Flow Network](https://elib.uni-stuttgart.de/bitstream/11682/12574/1/master_thesis_alexander_lis.pdf)
 
+
 #### [GUAP: Graph Universal Attack Through Adversarial Patching](https://arxiv.org/abs/2212.05709)
 
 arXiv 2301
@@ -888,9 +989,32 @@ arXiv 2301
 
 
 ### Defenses
+
+#### [LanCeX: A Versatile and Lightweight Defense Method against Condensed Adversarial Attacks in Image and Audio Recognition](https://dl.acm.org/doi/10.1145/3555375)
+
+1. consider defenses for both image and audio
+
+
 #### [CRAB: Certified Patch Robustness Against Poisoning-Based Backdoor Attacks](https://ieeexplore.ieee.org/abstract/document/9897387)
 
 ICIP 2022
 
 1. apply certifiably robust defenses for test-time attack to backdoored models
+
+[(go back to table of contents)](#table-of-contents)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
