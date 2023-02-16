@@ -981,7 +981,7 @@ arXiv 2207; ECCV 2022 workshop
 #### [Attacking a Defended Optical Flow Network](https://elib.uni-stuttgart.de/bitstream/11682/12574/1/master_thesis_alexander_lis.pdf)
 
 
-#### [GUAP: Graph Universal Attack Through Adversarial Patching](https://arxiv.org/abs/2212.05709)
+#### [GUAP: Graph Universal Attack Through Adversarial Patching](https://arxiv.org/abs/2301.01731)
 
 arXiv 2301
 
@@ -1001,13 +1001,13 @@ ICIP 2022
 
 1. apply certifiably robust defenses for test-time attack to backdoored models
 
+#### [Adversarial Training of Self-supervised Monocular Depth Estimation against Physical-World Attacks](https://arxiv.org/abs/2301.13487)
+
+ICLR 2023
+
+1. 
+
 [(go back to table of contents)](#table-of-contents)
-
-
-
-
-
-
 
 
 
