@@ -102,7 +102,7 @@ To evaluate a <u>certified defense</u>, we need to develop a <u>robustness certi
 
 There are also two different defense objectives (robustness notions).
 
-<u>Robust prediction</u> aims to always make correct decisions (e.g., correct classification label, correct bounding box detection), even in the presence of an attacker. It is also often called *recovery-based defense*.
+<u>Robust prediction (or prediction recovery)</u> aims to always make correct decisions (e.g., correct classification label, correct bounding box detection), even in the presence of an attacker. It is also often called *recovery-based defense*.
 
 <u>Attack detection</u>, on the other hand, only aims to detect an attack. If the defense detects an attack, it issues an alert and abstains from making predictions; if no attack is detected, it performs normal predictions. We can think of this type of defense as adding a special token "ALERT" to the model output space. 
 
@@ -320,6 +320,10 @@ TPAMI 2022
 #### [Adversarial Patch Attacks on Deep-Learning-Based Face Recognition Systems Using Generative Adversarial Networks](https://scholar.google.com/scholar_url?url=https://www.mdpi.com/1424-8220/23/2/853/pdf&hl=en&sa=X&d=48559259810472902&ei=TFTGY93fE-eR6rQPlcq46AU&scisig=AAGBfm1hT9-F56fSSSRMBmArOQr2o5HoPA&oi=scholaralrt&hist=aLXNz30AAAAJ:9852417106042154872:AAGBfm01Ux2UGyMoVgNEkpSE_Z5DZDMAhw&html=&pos=5&folt=rel)
 
 
+#### [A Few Adversarial Tokens Can Break Vision Transformers](https://robustart.github.io/long_paper/31.pdf)
+CVPR workshop 2023
+
+#### [Vulnerability of CNNs against Multi-Patch Attacks](https://dl.acm.org/doi/abs/10.1145/3579988.3585054)
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -790,6 +794,21 @@ AAAI 2023
 #### [Towards a physical-world adversarial patch for blinding object detection models](https://www.sciencedirect.com/science/article/abs/pii/S0020025520308586)
 
 
+#### [Patch of Invisibility: Naturalistic Black-Box Adversarial Attacks on Object Detectors](https://arxiv.org/abs/2303.04238)
+arXiv 2303
+
+
+#### [TransPatch: A Transformer-based Generator for Accelerating Transferable Patch Generation in Adversarial Attacks Against Object Detection Models](https://link.springer.com/chapter/10.1007/978-3-031-25056-9_21)
+ECCV 2023
+
+
+#### [Adversarial patch attacks against aerial imagery object detectors](https://www.sciencedirect.com/science/article/abs/pii/S0925231223002989)
+
+
+#### [Light Projection-Based Physical-World Vanishing Attack Against Car Detection](https://ieeexplore.ieee.org/abstract/document/10095895)
+
+#### [Aesthetic Yet Customizable Adversarial Patches Towards Physical Attacks]()
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -885,6 +904,9 @@ MM 2022
 #### [Research on Adversarial Patch Attack Defense Method for Traffic Sign Detection](https://link.springer.com/chapter/10.1007/978-981-19-8285-9_15)
 
 
+#### [Jedi: Entropy-based Localization and Removal of Adversarial Patches](https://arxiv.org/abs/2304.10029)
+CVPR 2023
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -935,6 +957,8 @@ arXiv 2209
 2. Use different masking strategies for attack detection or robust prediction
 3. Perform inpainting after masking to improve performance
 4. Unfortunately, this paper does not count false alerts of detection-based defense as errors in the clean setting
+
+#### [Defense against Adversarial Patch Attacks for Aerial Image Semantic Segmentation by Robust Feature Extraction](https://www.mdpi.com/2072-4292/15/6/1690)
 
 
 
@@ -988,6 +1012,8 @@ arXiv 2301
 1. add a patch(set) of nodes to graph to attack GNN
 
 
+#### [Efficient Decision-based Black-box Patch Attacks on Video Recognition](https://arxiv.org/abs/2303.11917)
+
 ### Defenses
 
 #### [LanCeX: A Versatile and Lightweight Defense Method against Condensed Adversarial Attacks in Image and Audio Recognition](https://dl.acm.org/doi/10.1145/3555375)
@@ -1008,10 +1034,6 @@ ICLR 2023
 1. 
 
 [(go back to table of contents)](#table-of-contents)
-
-
-
-
 
 
 
