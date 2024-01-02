@@ -324,6 +324,25 @@ TPAMI 2022
 CVPR workshop 2023
 
 #### [Vulnerability of CNNs against Multi-Patch Attacks](https://dl.acm.org/doi/abs/10.1145/3579988.3585054)
+
+
+#### [Distributional Modeling for Location-Aware Adversarial Patches](https://arxiv.org/abs/2306.16131)
+
+#### [Query-Efficient Decision-based Black-Box Patch Attack](https://arxiv.org/abs/2307.00477)
+
+#### [Cross-shaped Adversarial Patch Attack](https://ieeexplore.ieee.org/abstract/document/10225573)
+
+
+#### [Transferable Black-Box Attack Against Face Recognition With Spatial Mutable Adversarial Patch](https://ieeexplore.ieee.org/abstract/document/10234435)
+
+#### [Hard-label Black-box Universal Adversarial Patch Attack](https://www.usenix.org/system/files/usenixsecurity23-tao.pdf)
+USENIX Security 2023
+
+#### [Stealthy Physical Masked Face Recognition Attack via Adversarial Style Optimization](https://arxiv.org/abs/2309.09480)
+
+#### [Generating Visually Realistic Adversarial Patch](https://arxiv.org/abs/2312.03030)
+
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -447,6 +466,15 @@ ECCV 2022
 3. They proposed a generalized window mask to handle the two-patch problem.
 4. The clean performance evaluation of the detection-based defense does not count false alerts as errors (the authors say they are working on a revision to fix this issue; I will add this defense to the leadboard soon)
 
+
+#### [Revisiting Image Classifier Training for Improved Certified Robust Defense against Adversarial Patches](https://arxiv.org/abs/2306.12610)
+TMLR
+1. better training technique for PatchCleanser
+
+#### [Architecture-agnostic Iterative Black-box Certified Defense against Adversarial Patches](https://arxiv.org/abs/2305.10929)
+
+
+#### [A Majority Invariant Approach to Patch Robustness Certification for Deep Learning Models](https://arxiv.org/abs/2308.00452)
 
 
 http://scis.scichina.com/en/2022/170306.pdf
@@ -588,6 +616,32 @@ arXiv 2203; ICML workshop 2022
 1. A dataset for adversarial patches
 2. *Clarification from the authors:* the main purpose of the ImageNet-Patch dataset is to provide a fast benchmark of models against patch attacks, but not strictly related to *defenses* against adversarial patches, which is why they did not cite any adversarial patch defense papers.
 3. (I ran some experiments; the transferability to architectures like ViT and ResMLP seemed low)
+
+#### [Understanding and Defending Patched-based Adversarial Attacks for Vision Transformer](https://proceedings.mlr.press/v202/liu23n/liu23n.pdf)
+
+ICML 2023
+
+
+#### [DIFFender: Diffusion-Based Adversarial Defense against Patch Attacks](https://arxiv.org/abs/2306.09124)
+
+#### [Hardening RGB-D Object Recognition Systems against Adversarial Patch Attacks](https://arxiv.org/pdf/2309.07106.pdf)
+
+#### [Robust Adversarial Defence: Use of Auto-inpainting](https://link.springer.com/chapter/10.1007/978-3-031-44237-7_11)
+
+#### [Defending Against Local Adversarial Attacks through Empirical Gradient Optimization ](https://hrcak.srce.hr/file/446408)
+
+#### [RADAP: A Robust and Adaptive Defense Against Diverse Adversarial Patches on Face Recognition](https://arxiv.org/abs/2311.17339)
+
+#### [ODDR: Outlier Detection & Dimension Reduction Based Defense Against Adversarial Patches](https://arxiv.org/abs/2311.12084)
+
+#### [DefensiveDR: Defending against Adversarial Patches using Dimensionality Reduction](https://arxiv.org/abs/2311.12211)
+
+#### [TPM: Two-Stage Prediction Mechanism for Universal Adversarial Patch Defense](https://link.springer.com/chapter/10.1007/978-3-031-46317-4_21)
+
+#### [Improving Adversarial Robustness Against Universal Patch Attacks Through Feature Norm Suppressing](https://ieeexplore.ieee.org/abstract/document/10305196)
+
+#### [Adversarial Pixel and Patch Detection Using Attribution Analysis](https://ieeexplore.ieee.org/abstract/document/10356375)
+
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -809,6 +863,32 @@ ECCV 2023
 
 #### [Aesthetic Yet Customizable Adversarial Patches Towards Physical Attacks]()
 
+#### [DAP: A Dynamic Adversarial Patch for Evading Person Detectors](https://arxiv.org/abs/2305.11618)
+
+
+#### [Physically Adversarial Infrared Patches with Learnable Shapes and Locations](https://openaccess.thecvf.com/content/CVPR2023/papers/Wei_Physically_Adversarial_Infrared_Patches_With_Learnable_Shapes_and_Locations_CVPR_2023_paper.pdf)
+CVPR 2023
+
+#### [Physically Realizable Natural-Looking Clothing Textures Evade Person Detectors via 3D Modeling](https://openaccess.thecvf.com/content/CVPR2023/papers/Hu_Physically_Realizable_Natural-Looking_Clothing_Textures_Evade_Person_Detectors_via_3D_CVPR_2023_paper.pdf)
+CVPR 2023
+
+
+#### [Angelic Patches for Improving Third-Party Object Detector Performance](https://openaccess.thecvf.com/content/CVPR2023/papers/Si_Angelic_Patches_for_Improving_Third-Party_Object_Detector_Performance_CVPR_2023_paper.pdf)
+CVPR 2023
+(not really an attack)
+
+#### [Unified Adversarial Patch for Cross-modal Attacks in the Physical World](https://arxiv.org/abs/2307.07859)
+
+#### [Unified Adversarial Patch for Visible-Infrared Cross-modal Attacks in the Physical World](https://arxiv.org/abs/2307.14682)
+
+#### [CamoPatch: An Evolutionary Strategy for Generating Camouflaged Adversarial Patches](https://openreview.net/pdf?id=B94G0MXWQX)
+
+#### [DOEPatch: Dynamically Optimized Ensemble Model for Adversarial Patches Generation](https://arxiv.org/abs/2312.16907)
+
+#### [Adversarial Camera Patch: An Effective and Robust Physical-World Attack on Object Detectors](https://arxiv.org/abs/2312.06163)
+
+#### [Infrared Adversarial Patches with Learnable Shapes and Locations in the Physical World](https://link.springer.com/article/10.1007/s11263-023-01963-y)
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -906,6 +986,18 @@ MM 2022
 
 #### [Jedi: Entropy-based Localization and Removal of Adversarial Patches](https://arxiv.org/abs/2304.10029)
 CVPR 2023
+
+
+#### [X-Detect: Explainable Adversarial Patch Detection for Object Detectors in Retail](https://arxiv.org/abs/2306.08422)
+
+#### [Defending Adversarial Patches via Joint Region Localizing and Inpainting](https://arxiv.org/abs/2307.14242)
+
+#### [HARP: Let Object Detector Undergo Hyperplasia to Counter Adversarial Patches](https://dl.acm.org/doi/abs/10.1145/3581783.3612421)
+
+#### [Fight Fire with Fire: Combating Adversarial Patch Attacks using Pattern-randomized Defensive Patches](https://arxiv.org/abs/2311.06122)
+  canary patch
+
+#### [Securing Tiny Transformerbased Computer Vision Models: Evaluating Real-World Patch Attacks](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/646884/AdversarialPatchesTransformers.pdf?sequence=1)
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -1014,6 +1106,14 @@ arXiv 2301
 
 #### [Efficient Decision-based Black-box Patch Attacks on Video Recognition](https://arxiv.org/abs/2303.11917)
 
+#### [Adversarial Attacks on Adaptive Cruise Control Systems](https://dl.acm.org/doi/abs/10.1145/3576914.3587493)
+
+
+#### [RPAU: Fooling the Eyes of UAVs via Physical Adversarial Patches](https://ieeexplore.ieee.org/abstract/document/10265297)
+
+
+#### [ADV-POST: Physically Realistic Adversarial Poster for Attacking Semantic Segmentation Models in Autonomous Driving](https://link.springer.com/chapter/10.1007/978-981-99-8178-6_27)
+
 ### Defenses
 
 #### [LanCeX: A Versatile and Lightweight Defense Method against Condensed Adversarial Attacks in Image and Audio Recognition](https://dl.acm.org/doi/10.1145/3555375)
@@ -1031,12 +1131,11 @@ ICIP 2022
 
 ICLR 2023
 
-1. 
+#### [Detection Defenses: An Empty Promise against Adversarial Patch Attacks on Optical Flow](https://arxiv.org/abs/2310.17403)
+
+#### [Attention-Based Real-Time Defenses for Physical Adversarial Attacks in Vision Applications](https://arxiv.org/abs/2311.11191)
+
 
 [(go back to table of contents)](#table-of-contents)
-
-
-
-
 
 
