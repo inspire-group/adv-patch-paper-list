@@ -1,6 +1,7 @@
 # A Paper List for Localized Adversarial Patch Research
 
 ## Changelog
+- <u>07/2025</u>: I stopped tracking new papers around Jan 2024. However, if you have any interesting new papers to share, feel free to send me a message or (preferably) submit a pull request :)
 
 - <u>07/2022</u>: wrote two blog posts for adversarial patches and certifiably robust image classification [post1](https://freedom-to-tinker.com/2022/07/12/toward-trustworthy-machine-learning-an-example-in-defending-against-adversarial-patch-attacks/">) [post2](https://freedom-to-tinker.com/2022/07/19/toward-trustworthy-machine-learning-an-example-in-defending-against-adversarial-patch-attacks-2/)
 
