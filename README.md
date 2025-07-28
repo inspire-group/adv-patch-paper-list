@@ -642,6 +642,12 @@ ICML 2023
 
 #### [Adversarial Pixel and Patch Detection Using Attribution Analysis](https://ieeexplore.ieee.org/abstract/document/10356375)
 
+#### [Signals Are All You Need: Detecting and Mitigating Digital and Real-World Adversarial Patches Using Signal-Based Features](https://dl.acm.org/doi/10.1145/3665451.3665530)
+AsiaCCS workshop 2024
+
+#### [DIFFender: Diffusion-Based Adversarial Defense against Patch Attacks](https://arxiv.org/abs/2306.09124)
+ECCV 2024
+
 
 [(go back to table of contents)](#table-of-contents)
 
@@ -889,6 +895,7 @@ CVPR 2023
 
 #### [Infrared Adversarial Patches with Learnable Shapes and Locations in the Physical World](https://link.springer.com/article/10.1007/s11263-023-01963-y)
 
+
 [(go back to table of contents)](#table-of-contents)
 
 
@@ -998,6 +1005,28 @@ CVPR 2023
   canary patch
 
 #### [Securing Tiny Transformerbased Computer Vision Models: Evaluating Real-World Patch Attacks](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/646884/AdversarialPatchesTransformers.pdf?sequence=1)
+
+#### [Adversarial Patch Detection and Mitigation by Detecting High Entropy Regions](https://ieeexplore.ieee.org/document/10207151)
+DSN workshop 2023
+
+#### [Adversarial Patch Detection: Leveraging Depth Contrast for Enhanced Threat Visibility](https://ieeexplore.ieee.org/document/10646903)
+DSN workshop 2024
+
+#### [Signals Are All You Need: Detecting and Mitigating Digital and Real-World Adversarial Patches Using Signal-Based Features](https://dl.acm.org/doi/10.1145/3665451.3665530)
+AsiaCCS workshop 2024
+
+#### [DIFFender: Diffusion-Based Adversarial Defense against Patch Attacks](https://arxiv.org/abs/2306.09124)
+ECCV 2024
+
+#### [PAD: Patch-Agnostic Defense against Adversarial Patch Attacks](https://arxiv.org/abs/2404.16452)
+CVPR 2024
+
+#### [NAPGuard: Towards Detecting Naturalistic Adversarial Patches](https://openaccess.thecvf.com/content/CVPR2024/papers/Wu_NAPGuard_Towards_Detecting_Naturalistic_Adversarial_Patches_CVPR_2024_paper.pdf)
+CVPR 2024
+
+#### [OD-SHIELD: Convolutional Autoencoder-Based Defense Against Adversarial Patch Attacks in Object Detection](https://ieeexplore.ieee.org/document/11021559)
+IEEE Access 2025
+
 
 [(go back to table of contents)](#table-of-contents)
 
